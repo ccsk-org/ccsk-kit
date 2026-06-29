@@ -23,7 +23,7 @@ Commands are entry points into the cadence. Specialist agents execute its beats 
   - the public contracts (exports, routes, schemas, env vars) the task could disturb.
 - State a **3–6 bullet survey summary** back to the user before proposing work.
 - Clarify only what the repo cannot answer. Prefer `AskUserQuestion` (common-rules Rule 4). Don't ask what a `grep` would answer in five seconds.
-- For broad, ambiguous, multi-phase, or risky work, capture the design as a plan under `.ccsk/plans/` via `/ccsk:plan` before writing code.
+- For broad, ambiguous, multi-phase, or risky work, capture the design as a plan under `.ccsk/plans/` via `/ccsk-plan` before writing code.
 
 ## Forge — implement against an agreed design
 
@@ -56,9 +56,9 @@ Commands are entry points into the cadence. Specialist agents execute its beats 
 
 | Situation | Enter at | Use |
 |---|---|---|
-| Scope unclear, multi-phase, or risky | **Frame** | `/ccsk:plan` |
-| A plan already exists, or scope is clear | **Forge** | `/ccsk:build` |
-| Improving one measurable metric repeatedly | **Loop** | `/ccsk:loop` |
+| Scope unclear, multi-phase, or risky | **Frame** | `/ccsk-plan` |
+| A plan already exists, or scope is clear | **Forge** | `/ccsk-build` |
+| Improving one measurable metric repeatedly | **Loop** | `/ccsk-loop` |
 | Need options before committing to a design | pre-Frame | `brainstormer` agent |
 
 This file is the stable contract — it deliberately carries no tool/CLI mechanics. The commands carry the mechanics; the agents carry the execution.

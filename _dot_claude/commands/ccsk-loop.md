@@ -1,11 +1,10 @@
 ---
-name: ccsk:loop
 description: Autonomous optimization loop — repeatedly make one small change, commit, measure a single-number metric, and keep it or git-revert it. Learns from git history + a TSV log. For metrics like test coverage, bundle size, lint count, or benchmark time.
 argument-hint: [Goal, or an inline Goal/Scope/Verify/Guard/Iterations/Direction/Min-Delta block]
 allowed-tools: Read, Edit, MultiEdit, Write, Bash, Glob, Grep, AskUserQuestion, Skill
 ---
 
-# `/ccsk:loop`
+# `/ccsk-loop`
 
 > Drive one measurable metric upward (or downward) without re-prompting. This command is the thin entry point; the method lives in the **`optimization-loop`** skill. Read and follow that skill — do not restate its phases here.
 
@@ -49,11 +48,11 @@ allowed-tools: Read, Edit, MultiEdit, Write, Bash, Glob, Grep, AskUserQuestion, 
 ## Quick examples
 
 ```
-/ccsk:loop Raise statement coverage in src/parser toward 80%
+/ccsk-loop Raise statement coverage in src/parser toward 80%
 ```
 
 ```
-/ccsk:loop
+/ccsk-loop
 Goal: Get the main client bundle under 200 KB
 Scope: src/**/*.ts | src/**/*.tsx
 Verify: vite build >/dev/null 2>&1 && du -k dist/assets/index-*.js | awk '{print $1}'

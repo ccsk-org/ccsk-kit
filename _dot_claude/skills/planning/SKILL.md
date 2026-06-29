@@ -1,6 +1,6 @@
 ---
 name: planning
-description: How to structure a phased implementation plan — acceptance criteria, phase decomposition, risk surfacing, and what makes a phase independently verifiable. Use when decomposing non-trivial work into phases, running `/ccsk:plan`, or acting as the planner agent.
+description: How to structure a phased implementation plan — acceptance criteria, phase decomposition, risk surfacing, and what makes a phase independently verifiable. Use when decomposing non-trivial work into phases, running `/ccsk-plan`, or acting as the planner agent.
 ---
 
 # Planning
@@ -10,13 +10,13 @@ How to turn a fuzzy request into a phased, verifiable plan. The plan is a contra
 ## When this applies
 
 - Scope is broad, ambiguous, multi-phase, or risky and needs a design before code.
-- You are running `/ccsk:plan` or operating as the planner agent.
+- You are running `/ccsk-plan` or operating as the planner agent.
 - Work touches public contracts (exports, routes, schemas, env vars) or several modules.
 
 | When NOT to use | Reach for instead |
 |---|---|
-| Single-step edit or direct factual answer | `/ccsk:build` (Forge) |
-| Improving one measurable metric repeatedly | `../optimization-loop/SKILL.md` (`/ccsk:loop`) |
+| Single-step edit or direct factual answer | `/ccsk-build` (Forge) |
+| Improving one measurable metric repeatedly | `../optimization-loop/SKILL.md` (`/ccsk-loop`) |
 | Need design options before any plan exists | `brainstormer` agent |
 
 ## Core guidance

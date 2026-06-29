@@ -1,11 +1,10 @@
 ---
-name: ccsk:build
 description: Implement a plan or a clear task end-to-end — survey, forge slice by slice, prove with tests + review, then sign off. The kit's implementation pipeline.
 argument-hint: [path to a .ccsk/plans/<dir>, or a natural-language task]
 allowed-tools: Read, Glob, Grep, Bash, Task, Write, Edit, MultiEdit, AskUserQuestion, WebSearch, WebFetch
 ---
 
-# `/ccsk:build`
+# `/ccsk-build`
 
 > The **Forge → Prove → Sign-off** beats of the Build Cadence. Execute a plan (or a clear task) end-to-end, with verification, review, and finalize as mandatory gates — not optional extras.
 
@@ -13,9 +12,9 @@ allowed-tools: Read, Glob, Grep, Bash, Task, Write, Edit, MultiEdit, AskUserQues
 
 ## Pre-flight rules (non-negotiable)
 
-1. **Plan before code — HARD GATE.** Do not write implementation code until a reviewed plan exists. If handed a non-trivial raw task with no plan, defer to `/ccsk:plan` or produce a lightweight inline plan and get approval first. The only override: the user explicitly says "just code it."
+1. **Plan before code — HARD GATE.** Do not write implementation code until a reviewed plan exists. If handed a non-trivial raw task with no plan, defer to `/ccsk-plan` or produce a lightweight inline plan and get approval first. The only override: the user explicitly says "just code it."
 2. **Survey before touching — HARD GATE** (skipped only when the input is a plan dir, which already encodes the Survey).
-3. **Delegate the gates.** Testing, review, and finalize MUST run via `Task` subagents — a `/ccsk:build` run that ends with zero `Task` calls is incomplete.
+3. **Delegate the gates.** Testing, review, and finalize MUST run via `Task` subagents — a `/ccsk-build` run that ends with zero `Task` calls is incomplete.
 4. **No branch, no commit without approval** (common-rules Gotcha).
 
 ---
@@ -54,7 +53,7 @@ Files changed, gates passed, plan status, and the suggested next step.
 
 ---
 
-## Relation to `/ccsk:plan`
+## Relation to `/ccsk-plan`
 
 `build` is the consumer of `plan`. The plan's `01-CLARIFY.md` acceptance criteria are loaded **verbatim** as the test/review gate spec — that's what closes the loop between Frame and Prove.
 

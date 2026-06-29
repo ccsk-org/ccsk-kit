@@ -1,13 +1,12 @@
 ---
-name: ccsk:plan
 description: Design before code — survey the repo, research, and write a phased, reviewed implementation plan into .ccsk/plans/. No implementation.
 argument-hint: [task description, or a path to an existing .ccsk/plans/<dir> to refine]
 allowed-tools: Read, Glob, Grep, Bash, Task, WebSearch, WebFetch, AskUserQuestion, Write, Edit
 ---
 
-# `/ccsk:plan`
+# `/ccsk-plan`
 
-> The **Frame** beat of the Build Cadence. Turn an intent into a reviewed, phased, self-contained plan under `.ccsk/plans/` — with zero code written. This is the disciplined front door before `/ccsk:build`.
+> The **Frame** beat of the Build Cadence. Turn an intent into a reviewed, phased, self-contained plan under `.ccsk/plans/` — with zero code written. This is the disciplined front door before `/ccsk-build`.
 
 ---
 
@@ -18,7 +17,7 @@ allowed-tools: Read, Glob, Grep, Bash, Task, WebSearch, WebFetch, AskUserQuestio
 3. **If a step is genuinely impossible, name it and stop.** Never fabricate to keep the flow moving.
 4. **Token discipline.** Glob/Grep before Read; read in slices; don't dump whole files into your reply.
 5. **Verify version claims.** Any concrete version/feature you write into a plan must be checked via `context7` / `docs-seeker`, or marked `TODO: verify`.
-6. **This command writes Markdown only — never code.** Implementation belongs to `/ccsk:build`.
+6. **This command writes Markdown only — never code.** Implementation belongs to `/ccsk-build`.
 
 ---
 
@@ -52,7 +51,7 @@ Reuse the repo's existing convention (see `.ccsk/plans/260525-...-example/`):
 For security / payments / data / public-API plans, run one adversarial pass (planner or brainstormer wearing a red-team hat) and reconcile findings before handoff.
 
 ### 9. Handoff
-`AskUserQuestion`: proceed to `/ccsk:build {plan-dir}`, refine the plan, or stop. Return the absolute plan path and a one-paragraph summary of what was decided.
+`AskUserQuestion`: proceed to `/ccsk-build {plan-dir}`, refine the plan, or stop. Return the absolute plan path and a one-paragraph summary of what was decided.
 
 ---
 
@@ -63,11 +62,11 @@ When spawning `researcher` / `planner` / `brainstormer` / `designer`, follow `or
 ## Anti-patterns (rejected)
 
 - Asking a question grep would answer in five seconds.
-- Writing code (that's `/ccsk:build`).
+- Writing code (that's `/ccsk-build`).
 - An `01-PLAN.md` index over 100 lines.
 - A version number you didn't verify this session.
 - "I'll create a comprehensive plan…" — show structure, not adjectives.
 
 ## Output
 
-The plan dir it produces is the exact input `/ccsk:build` consumes — the acceptance criteria written here become build's Prove-beat gates.
+The plan dir it produces is the exact input `/ccsk-build` consumes — the acceptance criteria written here become build's Prove-beat gates.

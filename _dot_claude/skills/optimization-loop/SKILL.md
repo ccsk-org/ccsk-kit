@@ -5,7 +5,7 @@ description: Method for autonomously improving a single measurable metric throug
 
 # Optimization Loop
 
-The method behind `/ccsk:loop`. One idea: **make one small change, commit it, measure it, and keep it only if it provably helped — otherwise revert.** Repeat until the metric stops moving or a cap is hit.
+The method behind `/ccsk-loop`. One idea: **make one small change, commit it, measure it, and keep it only if it provably helped — otherwise revert.** Repeat until the metric stops moving or a cap is hit.
 
 The loop has no database and no background process. Its entire memory is two durable things:
 
@@ -187,9 +187,9 @@ Use the loop when the goal reduces to **one number from a shell command** that s
 
 | Don't use it for… | Use instead |
 |---|---|
-| A feature with no single metric | `/ccsk:build` |
-| A one-shot bug fix | `debugger` agent / `/ccsk:build` |
-| Design exploration | `brainstormer` agent / `/ccsk:plan` |
+| A feature with no single metric | `/ccsk-build` |
+| A one-shot bug fix | `debugger` agent / `/ccsk-build` |
+| Design exploration | `brainstormer` agent / `/ccsk-plan` |
 
 ---
 
@@ -197,7 +197,7 @@ Use the loop when the goal reduces to **one number from a shell command** that s
 
 **A — Raise coverage (higher is better)**
 ```
-/ccsk:loop
+/ccsk-loop
 Goal: Raise statement coverage in src/parser toward 80%
 Scope: src/parser/**/*.ts | tests/parser/**/*.test.ts
 Verify: vitest run --coverage --coverage.reporter=json-summary --silent && node -e "process.stdout.write(String(require('./coverage/coverage-summary.json').total.statements.pct))"
@@ -209,7 +209,7 @@ Min-Delta: 0.5
 
 **B — Shrink the bundle (lower is better)**
 ```
-/ccsk:loop
+/ccsk-loop
 Goal: Get the main client bundle under 200 KB
 Scope: src/**/*.ts | src/**/*.tsx
 Verify: vite build >/dev/null 2>&1 && du -k dist/assets/index-*.js | awk '{print $1}'
@@ -220,7 +220,7 @@ Min-Delta: 1
 
 **C — Drive lint errors to zero (lower is better)**
 ```
-/ccsk:loop
+/ccsk-loop
 Goal: Eliminate ESLint errors under src/api
 Scope: src/api/**/*.ts
 Verify: eslint src/api --format json 2>/dev/null | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>console.log(JSON.parse(s).reduce((a,f)=>a+f.errorCount,0)))"

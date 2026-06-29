@@ -44,9 +44,9 @@ Every non-trivial task moves through four beats. Enter at the one that fits — 
 
 | Situation | Enter at | Command |
 |---|---|---|
-| Scope unclear, multi-phase, or risky | **Frame** | `/ccsk:plan` |
-| A plan exists, or scope is clear | **Forge** | `/ccsk:build` |
-| Improving one measurable metric repeatedly | **Loop** | `/ccsk:loop` |
+| Scope unclear, multi-phase, or risky | **Frame** | `/ccsk-plan` |
+| A plan exists, or scope is clear | **Forge** | `/ccsk-build` |
+| Improving one measurable metric repeatedly | **Loop** | `/ccsk-loop` |
 | Need options before committing to a design | pre-Frame | `brainstormer` agent |
 
 ### The autonomous loop ⟳
@@ -58,7 +58,7 @@ Point it at a goal that can be scored by **one number from a shell command** —
 </div>
 
 ```text
-/ccsk:loop
+/ccsk-loop
 Goal: Raise statement coverage in src/parser toward 80%
 Scope: src/parser/**/*.ts | tests/parser/**/*.test.ts
 Verify: vitest run --coverage ... (prints one number)
@@ -77,7 +77,7 @@ The controller delegates each beat to a specialist, grouped by where it serves t
 
 ### Skills
 
-Passive domain knowledge the model auto-activates by match: **`optimization-loop`** (drives `/ccsk:loop`) plus `planning`, `frontend-development`, `backend-development`, `databases`, `security-review`, `research`, `deploy`, `docs-sync`, and `context-engineering`.
+Passive domain knowledge the model auto-activates by match: **`optimization-loop`** (drives `/ccsk-loop`) plus `planning`, `frontend-development`, `backend-development`, `databases`, `security-review`, `research`, `deploy`, `docs-sync`, and `context-engineering`.
 
 ---
 
@@ -93,9 +93,9 @@ ccsk init
 Then, inside Claude Code:
 
 ```text
-/ccsk:plan    Add team workspaces with role-based permissions
-/ccsk:build   .ccsk/plans/260629-1430-team-workspaces
-/ccsk:loop    Raise coverage in src/api toward 85%
+/ccsk-plan    Add team workspaces with role-based permissions
+/ccsk-build   .ccsk/plans/260629-1430-team-workspaces
+/ccsk-loop    Raise coverage in src/api toward 85%
 ```
 
 ---

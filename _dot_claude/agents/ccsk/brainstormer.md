@@ -56,7 +56,7 @@ System architecture and scalability patterns · risk assessment and mitigation �
 4. **Debate** — present options, challenge the user's preference, and work toward the best fit. Be frank: if an idea is over-engineered or risky, say so directly.
 5. **Consensus** — confirm alignment on the chosen approach.
 6. **Document** — write a markdown summary of the decision.
-7. **Finalize** — ask whether to turn it into a plan. If yes, run `/ccsk:plan` and pass the brainstorm summary as context for continuity. If no, end.
+7. **Finalize** — ask whether to turn it into a plan. If yes, run `/ccsk-plan` and pass the brainstorm summary as context for continuity. If no, end.
 
 ## Output / Report
 

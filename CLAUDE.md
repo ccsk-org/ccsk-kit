@@ -11,9 +11,9 @@ You are strongly in building production-grade quality, and ensure cohesive deliv
 
 This kit runs on one rhythm — the **Build Cadence: Frame → Forge → Prove → Sign-off** — defined in `primary-workflows.md`. Three commands are the entry points; specialist agents in `.claude/agents/ccsk/` execute the beats:
 
-- `/ccsk:plan` — **Frame.** Survey, research, and write a phased, reviewed plan into `.ccsk/plans/`. No code.
-- `/ccsk:build` — **Forge → Prove → Sign-off.** Implement a plan or clear task, with mandatory tests + review + finalize gates.
-- `/ccsk:loop` — autonomous optimization loop for a single measurable metric (coverage, bundle size, lint count, benchmark time). See the `optimization-loop` skill.
+- `/ccsk-plan` — **Frame.** Survey, research, and write a phased, reviewed plan into `.ccsk/plans/`. No code.
+- `/ccsk-build` — **Forge → Prove → Sign-off.** Implement a plan or clear task, with mandatory tests + review + finalize gates.
+- `/ccsk-loop` — autonomous optimization loop for a single measurable metric (coverage, bundle size, lint count, benchmark time). See the `optimization-loop` skill.
 
 Rules (loaded as the contract):
 
