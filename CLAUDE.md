@@ -9,11 +9,23 @@ You are strongly in building production-grade quality, and ensure cohesive deliv
 
 ## Workflows
 
+This kit runs on one rhythm — the **Build Cadence: Frame → Forge → Prove → Sign-off** — defined in `primary-workflows.md`. Three commands are the entry points; specialist agents in `.claude/agents/ccsk/` execute the beats:
+
+- `/ccsk:plan` — **Frame.** Survey, research, and write a phased, reviewed plan into `.ccsk/plans/`. No code.
+- `/ccsk:build` — **Forge → Prove → Sign-off.** Implement a plan or clear task, with mandatory tests + review + finalize gates.
+- `/ccsk:loop` — autonomous optimization loop for a single measurable metric (coverage, bundle size, lint count, benchmark time). See the `optimization-loop` skill.
+
+Rules (loaded as the contract):
+
+- Primary workflows (the cadence): `./.claude/rules/primary-workflows.md`
+- Orchestration protocols (subagent delegation): `./.claude/rules/orchestration-protocols.md`
 - Common rules: `./.claude/rules/common-rules.md`
 - Technical Stacks: `./.claude/rules/technical-stacks.md`
 - Development rules: `./.claude/rules/development-rules.md`
 - Documentation management: `./.claude/rules/documentation-management.md`
 - And other workflows: `./.claude/rules/*`
+
+This kit is **pure markdown** — no hooks, no Node scripts, no CLI dependency. Every behavior lives in commands, agents, rules, and skills.
 
 **IMPORTANT**: Analyze the skills catalog and activate the skills that are needed for the task during the process.
 **IMPORTANT**: Do NOT modify skills in `~/.claude/skills` directory directly. **MUST** modify skills in this current working directory. Unless you are asked to do so.

@@ -1,0 +1,14 @@
+# ccsk autonomous loop — runtime trial log (never committed; survives git reverts)
+loop-log.tsv
+
+# OS / editor noise
+.DS_Store
+*.swp
+*.swo
+
+# Dependencies / build output (kits installed into target projects)
+node_modules/
+dist/
+
+# Local tool caches (not part of the kit)
+.serena/
