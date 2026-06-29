@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" width="900" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <marker id="bcArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#D97757"/>
+    </marker>
+  </defs>
+
+  <!-- card -->
+  <rect x="2" y="2" width="896" height="356" rx="14" fill="#FAF9F7" stroke="#E7E2DC"/>
+
+  <!-- title -->
+  <text x="40" y="48" font-size="22" font-weight="700" fill="#1A1A1A">The Build Cadence</text>
+  <text x="40" y="72" font-size="14" fill="#6B7280">One rhythm for every task — enter at the beat that fits.</text>
+
+  <!-- stages -->
+  <!-- Frame -->
+  <rect x="40" y="118" width="170" height="78" rx="10" fill="#FFFFFF" stroke="#E7E2DC"/>
+  <text x="125" y="150" text-anchor="middle" font-size="17" font-weight="700" fill="#1A1A1A">Frame</text>
+  <text x="125" y="172" text-anchor="middle" font-size="12" fill="#6B7280">understand &amp; plan</text>
+
+  <!-- Forge -->
+  <rect x="250" y="118" width="170" height="78" rx="10" fill="#FFFFFF" stroke="#E7E2DC"/>
+  <text x="335" y="150" text-anchor="middle" font-size="17" font-weight="700" fill="#1A1A1A">Forge</text>
+  <text x="335" y="172" text-anchor="middle" font-size="12" fill="#6B7280">implement a slice</text>
+
+  <!-- Prove -->
+  <rect x="460" y="118" width="170" height="78" rx="10" fill="#FFFFFF" stroke="#E7E2DC"/>
+  <text x="545" y="150" text-anchor="middle" font-size="17" font-weight="700" fill="#1A1A1A">Prove</text>
+  <text x="545" y="172" text-anchor="middle" font-size="12" fill="#6B7280">test &amp; review</text>
+
+  <!-- Sign-off -->
+  <rect x="670" y="118" width="170" height="78" rx="10" fill="#FFFFFF" stroke="#E7E2DC"/>
+  <text x="755" y="150" text-anchor="middle" font-size="17" font-weight="700" fill="#1A1A1A">Sign-off</text>
+  <text x="755" y="172" text-anchor="middle" font-size="12" fill="#6B7280">docs · commit</text>
+
+  <!-- arrows between stages -->
+  <line x1="212" y1="157" x2="246" y2="157" stroke="#D97757" stroke-width="2" marker-end="url(#bcArrow)"/>
+  <line x1="422" y1="157" x2="456" y2="157" stroke="#D97757" stroke-width="2" marker-end="url(#bcArrow)"/>
+  <line x1="632" y1="157" x2="666" y2="157" stroke="#D97757" stroke-width="2" marker-end="url(#bcArrow)"/>
+
+  <!-- loop arc: from Prove back to Forge -->
+  <path d="M545 118 C545 78, 335 78, 335 116" fill="none" stroke="#D97757" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#bcArrow)"/>
+  <text x="440" y="74" text-anchor="middle" font-size="13" fill="#D97757" font-weight="600">⟳ iterate</text>
+
+  <!-- command labels -->
+  <!-- /ccsk:plan under Frame -->
+  <rect x="55" y="232" width="140" height="30" rx="8" fill="#F6E5DD" stroke="#E7C9BB"/>
+  <text x="125" y="252" text-anchor="middle" font-size="13" font-weight="600" fill="#B4502F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/ccsk:plan</text>
+
+  <!-- /ccsk:build spanning Forge..Sign-off -->
+  <rect x="250" y="232" width="590" height="30" rx="8" fill="#F6E5DD" stroke="#E7C9BB"/>
+  <text x="545" y="252" text-anchor="middle" font-size="13" font-weight="600" fill="#B4502F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/ccsk:build</text>
+
+  <!-- /ccsk:loop -->
+  <rect x="330" y="286" width="240" height="30" rx="8" fill="#FFFFFF" stroke="#E7C9BB"/>
+  <text x="450" y="306" text-anchor="middle" font-size="13" font-weight="600" fill="#B4502F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/ccsk:loop  ⟳ autonomous</text>
+
+  <text x="450" y="340" text-anchor="middle" font-size="12" fill="#9AA0A6">Frame → Forge → Prove → Sign-off</text>
+</svg>

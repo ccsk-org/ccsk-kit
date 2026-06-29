@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="820" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+  <!-- card -->
+  <rect x="2" y="2" width="896" height="496" rx="14" fill="#FAF9F7" stroke="#E7E2DC"/>
+
+  <!-- title -->
+  <text x="40" y="46" font-size="22" font-weight="700" fill="#1A1A1A">The Autonomous Loop  ⟳</text>
+  <text x="40" y="70" font-size="14" fill="#6B7280">One change → commit → measure → keep or revert, then repeat.</text>
+
+  <g transform="translate(0,26)">
+    <!-- guide ring -->
+    <circle cx="450" cy="235" r="150" fill="none" stroke="#E7C9BB" stroke-width="2" stroke-dasharray="6 6"/>
+
+    <!-- clockwise arrowheads in the gaps -->
+    <g fill="#D97757">
+      <path d="M-5 -4 L5 0 L-5 4 z" transform="translate(507,96) rotate(22.5)"/>
+      <path d="M-5 -4 L5 0 L-5 4 z" transform="translate(589,178) rotate(67.5)"/>
+      <path d="M-5 -4 L5 0 L-5 4 z" transform="translate(589,292) rotate(112.5)"/>
+      <path d="M-5 -4 L5 0 L-5 4 z" transform="translate(507,374) rotate(157.5)"/>
+      <path d="M-5 -4 L5 0 L-5 4 z" transform="translate(393,374) rotate(202.5)"/>
+      <path d="M-5 -4 L5 0 L-5 4 z" transform="translate(311,292) rotate(247.5)"/>
+      <path d="M-5 -4 L5 0 L-5 4 z" transform="translate(311,178) rotate(292.5)"/>
+      <path d="M-5 -4 L5 0 L-5 4 z" transform="translate(393,96) rotate(337.5)"/>
+    </g>
+
+    <!-- hub -->
+    <circle cx="450" cy="235" r="74" fill="#FFFFFF" stroke="#D97757" stroke-width="1.5"/>
+    <text x="450" y="222" text-anchor="middle" font-size="13" font-weight="700" fill="#B4502F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">git +</text>
+    <text x="450" y="240" text-anchor="middle" font-size="12" font-weight="700" fill="#B4502F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">loop-log.tsv</text>
+    <text x="450" y="258" text-anchor="middle" font-size="12" fill="#6B7280">= memory</text>
+
+    <!-- nodes -->
+    <g font-size="14" font-weight="700">
+      <rect x="390" y="62" width="120" height="46" rx="10" fill="#FFFFFF" stroke="#E7E2DC"/>
+      <text x="450" y="90" text-anchor="middle"><tspan fill="#D97757">1</tspan><tspan fill="#1A1A1A" dx="6">Arm</tspan></text>
+      <rect x="496" y="106" width="120" height="46" rx="10" fill="#FFFFFF" stroke="#E7E2DC"/>
+      <text x="556" y="134" text-anchor="middle"><tspan fill="#D97757">2</tspan><tspan fill="#1A1A1A" dx="6">Recall</tspan></text>
+      <rect x="540" y="212" width="120" height="46" rx="10" fill="#FFFFFF" stroke="#E7E2DC"/>
+      <text x="600" y="240" text-anchor="middle"><tspan fill="#D97757">3</tspan><tspan fill="#1A1A1A" dx="6">Propose</tspan></text>
+      <rect x="496" y="318" width="120" height="46" rx="10" fill="#FFFFFF" stroke="#E7E2DC"/>
+      <text x="556" y="346" text-anchor="middle"><tspan fill="#D97757">4</tspan><tspan fill="#1A1A1A" dx="6">Apply</tspan></text>
+      <rect x="390" y="362" width="120" height="46" rx="10" fill="#FFFFFF" stroke="#E7E2DC"/>
+      <text x="450" y="390" text-anchor="middle"><tspan fill="#D97757">5</tspan><tspan fill="#1A1A1A" dx="6">Checkpoint</tspan></text>
+      <rect x="284" y="318" width="120" height="46" rx="10" fill="#FFFFFF" stroke="#E7E2DC"/>
+      <text x="344" y="346" text-anchor="middle"><tspan fill="#D97757">6</tspan><tspan fill="#1A1A1A" dx="6">Measure</tspan></text>
+      <rect x="240" y="212" width="120" height="46" rx="10" fill="#FFFFFF" stroke="#E7E2DC"/>
+      <text x="300" y="240" text-anchor="middle"><tspan fill="#D97757">7</tspan><tspan fill="#1A1A1A" dx="6">Judge</tspan></text>
+      <rect x="284" y="106" width="120" height="46" rx="10" fill="#FFFFFF" stroke="#E7E2DC"/>
+      <text x="344" y="134" text-anchor="middle"><tspan fill="#D97757">8</tspan><tspan fill="#1A1A1A" dx="6">Record</tspan></text>
+    </g>
+
+    <!-- judge fork caption -->
+    <text x="150" y="206" font-size="12" fill="#3F9B6B" font-weight="600">keep ✓</text>
+    <text x="150" y="262" font-size="12" fill="#6B7280" font-weight="600">revert ↺</text>
+  </g>
+
+  <text x="450" y="480" text-anchor="middle" font-size="12" fill="#9AA0A6">Commit before you measure · one atomic change per turn · git is the undo</text>
+</svg>
