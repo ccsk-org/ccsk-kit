@@ -1,0 +1,28 @@
+name: version-sync
+
+# Guards against version drift across VERSION + the plugin/marketplace manifests,
+# and (on tag push) that the tag matches VERSION. `claude plugin validate` does not
+# enforce this, so this workflow is the gate.
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Version sync-check
+        run: |
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            node .github/scripts/check-version.mjs --tag="${GITHUB_REF_NAME}"
+          else
+            node .github/scripts/check-version.mjs
+          fi
