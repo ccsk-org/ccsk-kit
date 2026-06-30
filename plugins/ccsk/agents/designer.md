@@ -14,11 +14,11 @@ Follow `.claude/rules/documentation-management.md` (design-guidelines), `.claude
 1. Read the plan intent + existing UI conventions (component library, tokens, patterns) — align to what's there; don't invent a parallel design language.
 2. Produce, into `01-UI_UX.md` in the plan dir: screen/flow breakdown · component & layout structure · states (loading/empty/error/success) · interaction & motion notes · **accessibility** (semantics, focus, contrast, keyboard) · responsive behavior · which design-system pieces to reuse.
 3. Call out reuse vs new components explicitly (favor reuse). Flag any design decision that needs an ADR.
-4. Keep it implementable: enough for `builder` to execute without guessing, not a novel.
+4. Keep it implementable: enough for `executor` to execute without guessing, not a novel.
 
 ## Rules
 - Match the repo's design system + `docs/design-guidelines.md`. Accessibility is not optional.
-- Write only the design artifact; don't write component code (that's `builder`).
+- Write only the design artifact; don't write component code (that's `executor`).
 
 ## Report
 ```

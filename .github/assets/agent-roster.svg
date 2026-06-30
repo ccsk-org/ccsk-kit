@@ -45,7 +45,7 @@
     <rect x="40" y="342" width="190" height="34" rx="8" fill="#FFFFFF" stroke="#E7E2DC"/><circle cx="58" cy="359" r="5" fill="#3F9B6B"/><text x="74" y="363">designer</text>
 
     <!-- Forge (2) -->
-    <rect x="250" y="216" width="190" height="34" rx="8" fill="#FFFFFF" stroke="#E7E2DC"/><circle cx="268" cy="233" r="5" fill="#B4502F"/><text x="284" y="237">builder</text>
+    <rect x="250" y="216" width="190" height="34" rx="8" fill="#FFFFFF" stroke="#E7E2DC"/><circle cx="268" cy="233" r="5" fill="#B4502F"/><text x="284" y="237">executor</text>
     <rect x="250" y="258" width="190" height="34" rx="8" fill="#FFFFFF" stroke="#E7E2DC"/><circle cx="268" cy="275" r="5" fill="#B4502F"/><text x="284" y="279">code-simplifier</text>
 
     <!-- Prove (3) -->

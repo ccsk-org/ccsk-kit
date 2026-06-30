@@ -6,7 +6,7 @@ A subagent starts with a blank context. It knows only what the prompt tells it. 
 
 This kit uses **single-subagent delegation**: spawn one specialist at a time. **No Agent-Teams fan-out, no multi-session orchestration, no per-agent model assignment** (agents inherit the session model). Parallel subagents are allowed only when write-sets are provably disjoint (see below).
 
-Plugin agents are invoked by their namespaced `subagent_type`: `ccsk:planner`, `ccsk:code-reviewer`, `ccsk:builder`, `ccsk:tester`, `ccsk:debugger`, `ccsk:researcher`, `ccsk:brainstormer`, `ccsk:designer`, `ccsk:docs-manager`, `ccsk:journal-writer`, `ccsk:git-manager`, `ccsk:code-simplifier`.
+Plugin agents are invoked by their namespaced `subagent_type`: `ccsk:planner`, `ccsk:code-reviewer`, `ccsk:executor`, `ccsk:tester`, `ccsk:debugger`, `ccsk:researcher`, `ccsk:brainstormer`, `ccsk:designer`, `ccsk:docs-manager`, `ccsk:journal-writer`, `ccsk:git-manager`, `ccsk:code-simplifier`.
 
 ---
 

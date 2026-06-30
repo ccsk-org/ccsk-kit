@@ -28,7 +28,7 @@ Contract: `.claude/rules/primary-workflows.md` · `.claude/rules/memory-protocol
 - Fix regressions at the source — never weaken/delete a test.
 
 ## Sign-off — **HARD GATE**
-- **Cross-context review:** spawn a **separate `ccsk:code-reviewer` subagent** to read the real diff and write a verdict to `.ccsk/plans/{dir}/reports/` (orchestration-protocols). The builder may not attest to its own work. A `REJECTED` verdict halts — surface options.
+- **Cross-context review:** spawn a **separate `ccsk:code-reviewer` subagent** to read the real diff and write a verdict to `.ccsk/plans/{dir}/reports/` (orchestration-protocols). The executor may not attest to its own work. A `REJECTED` verdict halts — surface options.
 - **Sync-back:** flip completed `[ ]`→`[x]` in `01-PLAN.md` (only for work in the tree), update `status:`/progress %, update `STATUS.md`.
 - **Memory write-back:** write the journal entry + a `MEMORY.md` pointer (+ an ADR via `.ccsk/adrs/` if a real decision was made; respect the MEMORY cap).
 - **Docs:** run `docs-sync` only if a documentation-management trigger actually fired.
