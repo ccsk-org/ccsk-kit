@@ -8,6 +8,7 @@
 
 <sub>**Plugin · `/ccsk:` commands · 15 Skills · 12 Agents · 7 Rules · self-learning memory**</sub>
 
+![version](https://img.shields.io/badge/version-2.0.0--beta--01-D9A24A)
 ![MIT](https://img.shields.io/badge/license-MIT-1A1A1A)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-D97757)
 ![pure markdown](https://img.shields.io/badge/pure-markdown-3F9B6B)
@@ -17,6 +18,11 @@
 > A lean, **pure-markdown** Claude Code kit shipped as a **plugin**: one Build Cadence, `/ccsk:` workflow commands, a focused specialist roster, an autonomous optimization loop, and a self-learning memory loop that compounds across sessions. No hooks, no Node scripts, no multi-model machinery — nothing to break silently.
 
 </div>
+
+> [!IMPORTANT]
+> **This is `v2.0.0-beta-01` — a prerelease.** v2 is a ground-up rebuild (plugin distribution + `/ccsk:` colon commands + a self-learning memory loop). The latest **stable** kit is **v1.1.0** (older `/ccsk-plan` hyphen commands), so a default `ccsk init` installs **v1.1.0**. To get v2, opt in:
+> `ccsk init --pre` · `ccsk init --version 2.0.0-beta-01` · or pick it in the `ccsk init` version picker.
+> (Installing the plugin directly from `main` — see below — also gives you v2.)
 
 ---
 
@@ -38,6 +44,10 @@
 
 Every non-trivial task moves through four beats. Enter at the one that fits — the `/ccsk:` commands are the doors.
 
+<div align="center">
+<img src=".github/assets/build-cadence.svg" alt="The Build Cadence: Frame → Forge → Prove → Sign-off" width="900">
+</div>
+
 | Situation | Enter at | Command |
 |---|---|---|
 | Scope unclear, multi-phase, or risky | **Frame** | `/ccsk:plan` |
@@ -48,13 +58,19 @@ Every non-trivial task moves through four beats. Enter at the one that fits — 
 
 ### The self-learning loop
 
-```
-rehydrate → work → journal (continuously) → Sign-off (gated on the memory write) → retro (compacts memory)
-        ↑                                                                                    │
-        └──────────────────────────── next session ─────────────────────────────────────────┘
-```
-
 Memory is plain markdown under `.ccsk/` (gitignored by default — local-only; opt in to commit for team sharing). `MEMORY.md` stays small (capped, pointer-based); journals are append-only; the plan ledger (`01-PLAN.md`) is the single source of truth for status.
+
+<div align="center">
+<img src=".github/assets/self-learning-loop.svg" alt="rehydrate → work → journal → Sign-off → retro → next session" width="900">
+</div>
+
+### Agents & orchestration
+
+The controller delegates each beat to a specialist (one at a time — single-subagent, no fan-out, no multi-model). Two rules are the contract: **`primary-workflows`** (the cadence) and **`orchestration-protocols`** (the delegation packet + typed status codes).
+
+<div align="center">
+<img src=".github/assets/agent-roster.svg" alt="12 agents grouped by cadence beat" width="900">
+</div>
 
 ### The autonomous loop ⟳
 
@@ -78,10 +94,10 @@ Install with [`@ccsk/cli`](https://github.com/ccsk-org/ccsk-cli) — it installs
 
 ```bash
 npm i -g @ccsk/cli
-ccsk init
+ccsk init --pre          # opt into the v2 beta (a plain `ccsk init` installs stable v1.1.0)
 ```
 
-Or add the plugin directly in Claude Code:
+Or add the plugin directly in Claude Code (this tracks `main`, i.e. **v2**):
 
 ```text
 /plugin marketplace add ccsk-org/ccsk-kit
@@ -106,15 +122,18 @@ plugins/ccsk/                     # the plugin → /ccsk: commands
 ├── skills/    plan · build · loop · rehydrate · brainstorm · research · debug ·
 │              code-review · security-review · journal · retro · docs-sync
 │              (+ glue: project-organization · context-engineering · skill-creator)
-├── agents/    planner · builder · code-reviewer · code-simplifier · tester · debugger ·
-│              researcher · brainstormer · designer · docs-manager · journal-writer · git-manager
-└── output-styles/  (ccsk-explain, materialized to the project)
-_dot_claude/   rules/ (the 7-rule contract) + output-styles/  → materialized to .claude/
-_dot_ccsk/     MEMORY.md · plans/ · journals/ · retros/ · adrs/ · milestones/ · templates/
-docs/          evergreen documentation skeleton
+└── agents/    planner · builder · code-reviewer · code-simplifier · tester · debugger ·
+               researcher · brainstormer · designer · docs-manager · journal-writer · git-manager
+_dot_claude/   → materialized to .claude/
+├── rules/         primary-workflows · orchestration-protocols · common-rules ·
+│                  development-rules · documentation-management · technical-stacks · memory-protocol
+└── output-styles/ ccsk-explain
+_dot_ccsk/     → materialized to .ccsk/
+               MEMORY.md · plans/ · journals/ · retros/ · adrs/ · milestones/ · templates/ (+ templates/prompts/)
+CLAUDE.md      loads the rules · docs/  evergreen documentation skeleton
 ```
 
-The colon commands (`/ccsk:plan`) require the **plugin** — that's why the kit ships as one. Rules, docs, and `.ccsk/` are materialized into your project by the CLI (a plugin can't own those).
+The colon commands (`/ccsk:plan`) require the **plugin** — that's why the kit ships as one. Rules, docs, and `.ccsk/` are materialized into your project by the CLI (a plugin can't own those). The `ccsk-explain` output-style ships via `_dot_claude/` (the plugin's `output-styles/` is intentionally empty).
 
 ---
 
