@@ -1,6 +1,6 @@
 # Project Roadmap — <project-name>
 
-> **Purpose:** Living document tracking project phases, milestones, and progress. The `project-manager` agent updates this after each phase completes. Dates are targets, not contracts.
+> **Purpose:** Living document tracking project phases, milestones, and progress. Updated at Sign-off (via `docs-sync` / `/ccsk:retro`) when a milestone advances. Dates are targets, not contracts.
 
 ---
 

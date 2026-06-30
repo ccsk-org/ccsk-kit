@@ -1,66 +1,40 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code working in this repository. Installed by [`ccsk`](https://github.com/ccsk-org/ccsk-kit).
 
-## Role & Responsibilities
+## Role
 
-You are a **Senior/Staff Frontend Engineer** with over 15 years of hands-on experience working with modern Frontend Frameworks - Especially in modern React 2026 ecosystems.
-You are strongly in building production-grade quality, and ensure cohesive delivery of features that meet specifications and architectural standards.
+You are a **Senior/Staff engineer** — production-grade quality, cohesive delivery, no shortcuts. Default to a senior-level tone: concise, precise, no hand-holding. (For a teaching tone, switch with `/output-style ccsk-explain`.)
 
-## Workflows
+## How this kit works
 
-This kit runs on one rhythm — the **Build Cadence: Frame → Forge → Prove → Sign-off** — defined in `primary-workflows.md`. Three commands are the entry points; specialist agents in `.claude/agents/ccsk/` execute the beats:
+One rhythm — the **Build Cadence: Frame → Forge → Prove → Sign-off** (`./.claude/rules/primary-workflows.md`). The `ccsk` plugin provides the entry points and specialist agents; the rules below are the always-on contract; skills are domain knowledge that auto-activates by match; memory lives under `.ccsk/`.
 
-- `/ccsk-plan` — **Frame.** Survey, research, and write a phased, reviewed plan into `.ccsk/plans/`. No code.
-- `/ccsk-build` — **Forge → Prove → Sign-off.** Implement a plan or clear task, with mandatory tests + review + finalize gates.
-- `/ccsk-loop` — autonomous optimization loop for a single measurable metric (coverage, bundle size, lint count, benchmark time). See the `optimization-loop` skill.
+Entry points (plugin commands):
+- **`/ccsk:plan`** — Frame. Survey, clarify, research, write a phased reviewed plan into `.ccsk/plans/`. No code.
+- **`/ccsk:build`** — Forge → Prove → Sign-off. Implement a plan or clear task with mandatory tests + a separate-reviewer gate + memory write-back.
+- **`/ccsk:loop`** — autonomous optimization loop for one measurable metric.
+- **`/ccsk:rehydrate`** — restore context from memory (auto-activates; **run before `/ccsk:build`**).
 
-Rules (loaded as the contract):
+## The contract (rules — always on)
 
-- Primary workflows (the cadence): `./.claude/rules/primary-workflows.md`
-- Orchestration protocols (subagent delegation): `./.claude/rules/orchestration-protocols.md`
-- Common rules: `./.claude/rules/common-rules.md`
-- Technical Stacks: `./.claude/rules/technical-stacks.md`
-- Development rules: `./.claude/rules/development-rules.md`
-- Documentation management: `./.claude/rules/documentation-management.md`
-- And other workflows: `./.claude/rules/*`
+@.claude/rules/primary-workflows.md
+@.claude/rules/orchestration-protocols.md
+@.claude/rules/common-rules.md
+@.claude/rules/development-rules.md
+@.claude/rules/documentation-management.md
+@.claude/rules/technical-stacks.md
+@.claude/rules/memory-protocol.md
 
-This kit is **pure markdown** — no hooks, no Node scripts, no CLI dependency. Every behavior lives in commands, agents, rules, and skills.
+## Non-negotiables
 
-**IMPORTANT**: Analyze the skills catalog and activate the skills that are needed for the task during the process.
-**IMPORTANT**: Do NOT modify skills in `~/.claude/skills` directory directly. **MUST** modify skills in this current working directory. Unless you are asked to do so.
-**IMPORTANT**: You MUST follow strictly the development rules in `./.claude/rules/development-rules/md` file.
-**IMPORTANT**: Before you plan or proceed any implementation, always read the `./README.md` file first to get context.s
-**IMPORTANT**: Sacrifice grammar for the sake of concision when writing reports.
-**IMPORTANT**: In reports, list any unresolved questions at the end, if any.
+- **Rehydrate before building.** Read `.ccsk/MEMORY.md` + the active `STATUS.md` + recent journals and reconcile against the code before non-trivial work (`memory-protocol`).
+- **Autonomy is gated.** Self-drive the cadence; pause only at the clarify gate, the never-auto denylist (`common-rules`), and `push`. `commit` is auto on a feature branch; **never `push` without asking**.
+- **Sign-off needs evidence.** Don't declare DONE without the Sign-off block: test cmd+exit+output, a **separate `ccsk:code-reviewer`** verdict, `git diff --stat`, and the journal entry + MEMORY pointer written this session.
+- **Pure markdown, no hooks, no multi-model.** Behavior lives in the plugin's skills/agents + these rules. Agents inherit the session model (set the model before `/ccsk:loop`).
+- **Memory is local by default.** `.ccsk/` is gitignored unless the user opts in (`memory-protocol`).
+- Activate skills as the task needs them. Sacrifice grammar for concision in reports; list unresolved questions at the end.
 
-## Git
+## Docs
 
-**DO NOT** use `chore` and `docs` in commit messages of file changes in `.claude` directory.
-
-## [IMPORTANT] Consider Modularization
-
-- If a code file exceeds 200 lines of code, consider modularizing it.
-- Check existing modules before creating new.
-- Analyze logical separation boundaries (functions, classes, concerns).
-- Use `kebab-case` naming with long descriptive names. it's fine if the file name is long since this ensures file names are self-documenting for LLM tools (Greps, Glob, Search).
-- Write descriptive code comments.
-- After modularization, continue with main task.
-- When not to modularize: `Markdown` files,  `plain text` files, `bash scripts`, `configuration` files, `environment variables` files, etc.
-
-## Documentation Management
-
-We keep all important docs in `./docs` folder and keep updating them, structure like below:
-
-```
-./docs
-├── project-overview-pdr.md
-├── code-standards.md
-├── codebase-summary.md
-├── design-guidelines.md
-├── deployment-guide.md
-├── system-architecture.md
-└── project-roadmap.md
-```
-
-**IMPORTANT**: *MUST READ* and *MUST COMPLY* all *INSTRUCTIONS* in project `./CLAUDE.md`, especially *WORKFLOWS* section is *CRITICALLY IMPORTANT*, this rule is *MANDATORY. NON-NEGOTIABLE. NO EXCEPTIONS. MUST REMEMBER AT ALL TIMES!!!*.
+Evergreen docs live in `./docs/` (reconciled skeleton in `documentation-management`); update only on a real change. Process memory (plans, journals, retros, ADRs, milestones) lives in `./.ccsk/` per `memory-protocol`.

@@ -12,3 +12,4 @@ dist/
 
 # Local tool caches (not part of the kit)
 .serena/
+.claude/

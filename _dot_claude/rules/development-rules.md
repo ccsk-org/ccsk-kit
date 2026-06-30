@@ -1,57 +1,33 @@
 # Development Rules
 
-**IMPORTANT**: Analyze the skills catalog and activate the skills that are needed for the task during the process.
-**IMPORTANT**: You ALWAYS follow these principles:
+How code gets written in this kit. Always-on; loaded by `CLAUDE.md`.
 
-- **KISS**: Keep It Simple, Stupid.
-- **YAGNI**: You Aren't Gonna Need It.
-- **DRY**: Don't Repeat Yourself.
-- **SOLID**: Single Responsibility Principle, Open-Closed Principle, Liskov Substitution Principle, Interface Segregation Principle, Dependency Inversion Principle.
+## Principles
 
-## General
+- **KISS / DRY / YAGNI.** Prefer the smallest change that satisfies the accepted scope. Reuse existing helpers, patterns, and test utilities before inventing abstractions. Don't build for hypothetical futures.
+- **Edit over create.** Change the file that owns the behavior. Create a new file only for a real boundary — **never** an `*-enhanced`, `*-v2`, `*-new`, or `*-copy` duplicate of a file that already exists. If a rewrite is needed, rewrite in place.
+- **Backward-compatible by default.** Keep public contracts (exports, routes, schemas, env vars, CLI flags) intact unless the accepted scope explicitly says otherwise. If you must break one, find and update every caller in the same change.
+- **Match the surroundings.** New code should read like the code already there — same style, naming, error-handling, and comment density. Write comments where the surrounding code does.
+- **One slice at a time.** Small, reviewable, independently-verifiable changes over big-bang commits.
 
-- **File Naming**: Use `kebab-case` for file names with a meaningful name that describes the purpose of the file, doesn't matter if the file name is long, just make sure when LLMs read the file names while using `Grep` or other tools, they can understand the purpose of the file right away without reading the file content.
-- **File Size Management**: Keep individual code files under 200 lines for optimal context management
-    - Split large files into smaller, focused components/modules.
-    - Use composition over inheritance for complex widgets.
-    - Extract utility functions into separate modules.
-    - Create dedicated service classes for business logic.
-- Use `gh` bash command to interact with Github features if needed.
-- For diagrams, use Mermaid v11 syntax inside markdown.
-- **[IMPORTANT]** Follow the codebases structure and code standards in `./docs` during implementation.
-- **[IMPORTANT]** Do NOT just simulate the implementation or mocking them, always implement the real code.
+## Modularization
 
-## Code Quality Guidelines
+- If a code file exceeds ~200 lines, consider splitting it. Check existing modules before creating new ones; split along logical boundaries (functions, classes, concerns).
+- Does **not** apply to markdown, plain text, shell scripts, config, or env files — leave those whole.
 
-- Read and follow codebases structure and code standards in `./docs`.
-- Don't be too harsh on code linting, but **make sure there are no syntax errors and code are compilable**.
-- Prioritize functionality and readability over strict style enforcement and code formatting.
-- Use reasonable code quality standards that enhance developer productivity.
-- Use `try-catch` error handling & cover security standards. But do NOT over-using `try-catch` statement.
-- Prefer using `sematic` HTML tags as much as possible instead of over-using `div` when working with HTML, JSX, TSX.
-- Avoid using `px` unit, MUST convert to `rem` instead when working with HTML, JSX, TSX, TailwindCSS, CSS, SCSS, LESS, etc.
+## Code-file naming (always-on)
 
-## Pre-commit/Push Rules
+There is no per-write naming hook in this kit, so this convention is the contract — apply it on **every** file you create:
 
-- Run linting before committing.
-- Run tests before pushing (Do NOT ignore failed tests just to pass the build or Github actions).
-- Keep commits focused on the actual code changes.
-- **DO NOT** commit and push any confidential information (such as `dotenv` files, `API Keys`, `database credentials`, etc.) to Git repository!
-- Create clean, professional commit messages without AI references. Use `commitlint` and conventional commit format.
-- When user requests commit and push code - it means commit and push all changes including all `.md` files and remaining untracked.
+- **Directories & non-component files:** `kebab-case` with long, descriptive, self-documenting names (long is fine — it helps grep/glob/LLM tools).
+- **Per-language code files:** follow the language/framework norm already in the repo — e.g. React components `PascalCase.tsx`, hooks `useThing.ts`, Python modules `snake_case.py`, Go files `lowercase.go`. When the repo already has a convention, match it; otherwise use the language default.
+- **No vague names** (`utils2`, `helper`, `temp`, `final`). The name should say what the file is.
 
-## Code Implementation
+## Tests
 
-- Write clean, readable, and maintainable code.
-- Follow established architectural patterns.
-- Implement features according to specifications.
-- Handle edge cases and error scenarios.
-- **DO NOT** create new enhanced files, update to the existing files directly.
+- Add or update focused tests for behavior you touch. Broaden to lint/typecheck/build when you change a shared contract.
+- Never weaken, skip, or delete a test to make the suite green — fix the regression at its source.
 
-## Self-Review
+## Generated artifacts (`.ccsk/`) naming
 
-Before finishing implementation, make sure your changes:
-
-- **DO NOT** impact others.
-- Work without any linter errors, runtime errors, and build errors.
-- Can convince a **Senior/Staff Frontend Engineer** of the code quality, cleanliness, and adherence best practices - production-grade quality.
+Artifact paths and timestamps are owned by the `project-organization` skill — **run `date +%y%m%d-%H%M`, never infer a timestamp** (fabricated dates mis-sort plan dirs and break rehydrate's checks).
