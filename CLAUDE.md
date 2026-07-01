@@ -8,9 +8,9 @@ You are a **Senior/Staff engineer** — production-grade quality, cohesive deliv
 
 ## How this kit works
 
-One rhythm — the **Build Cadence: Frame → Forge → Prove → Sign-off** (`./.claude/rules/primary-workflows.md`). The `ccsk` plugin provides the entry points and specialist agents; the rules below are the always-on contract; skills are domain knowledge that auto-activates by match; memory lives under `.ccsk/`.
+One rhythm — the **Build Cadence: Frame → Forge → Prove → Sign-off** (`./.claude/rules/primary-workflows.md`). The `ccsk` kit provides the entry points and specialist agents — materialized into `.claude/{agents,skills}` by default, or via the plugin with `ccsk init --plugin`; the rules below are the always-on contract; skills are domain knowledge that auto-activates by match; memory lives under `.ccsk/`.
 
-Entry points (plugin commands):
+Entry points:
 - **`/ccsk:plan`** — Frame. Survey, clarify, research, write a phased reviewed plan into `.ccsk/plans/`. No code.
 - **`/ccsk:build`** — Forge → Prove → Sign-off. Implement a plan or clear task with mandatory tests + a separate-reviewer gate + memory write-back.
 - **`/ccsk:loop`** — autonomous optimization loop for one measurable metric.

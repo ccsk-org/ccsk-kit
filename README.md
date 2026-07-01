@@ -101,26 +101,26 @@ Min-Delta: 0.5
 
 ## Get started
 
-Install with [`@ccsk/cli`](https://github.com/ccsk-org/ccsk-cli) — it installs the plugin **and** materializes the project contract (CLAUDE.md, rules, docs, `.ccsk/`) and wires optional tools (RTK, context-mode, Serena, ADD):
+Install with [`@ccsk/cli`](https://github.com/ccsk-org/ccsk-cli) — by default it **materializes the kit into your project**: the agents + skills are copied into `.claude/{agents,skills}` (self-contained, visible, committed with the repo), alongside the project contract (CLAUDE.md, rules, docs, `.ccsk/`) and optional tools (RTK, context-mode, Serena, ADD):
 
 ```bash
 npm i -g @ccsk/cli
 ccsk init --pre          # opt into the v2 beta (a plain `ccsk init` installs stable v1.1.0)
 ```
 
-Or add the plugin directly in Claude Code (this tracks `main`, i.e. **v2**):
+Materialized skills invoke with a `ccsk-` prefix (collision-safe); agents are bare:
+
+```text
+/ccsk-plan    Add team workspaces with role-based permissions
+/ccsk-build   .ccsk/plans/260629-1430-team-workspaces
+/ccsk-loop    Raise coverage in src/api toward 85%
+```
+
+Prefer the **plugin** delivery instead (colon commands `/ccsk:plan`, nothing copied into the project)? Use `ccsk init --plugin`, or add it directly in Claude Code:
 
 ```text
 /plugin marketplace add ccsk-org/ccsk-kit
 /plugin install ccsk@ccsk-kit
-```
-
-Then, inside Claude Code:
-
-```text
-/ccsk:plan    Add team workspaces with role-based permissions
-/ccsk:build   .ccsk/plans/260629-1430-team-workspaces
-/ccsk:loop    Raise coverage in src/api toward 85%
 ```
 
 ---
@@ -144,7 +144,7 @@ _dot_ccsk/     → materialized to .ccsk/
 CLAUDE.md      loads the rules · docs/  evergreen documentation skeleton
 ```
 
-The colon commands (`/ccsk:plan`) require the **plugin** — that's why the kit ships as one. Rules, docs, and `.ccsk/` are materialized into your project by the CLI (a plugin can't own those). The `ccsk-explain` output-style ships via `_dot_claude/` (the plugin's `output-styles/` is intentionally empty).
+**Two delivery modes.** By **default** (`ccsk init`) the CLI copies the agents + skills into your project's `.claude/{agents,skills}` — skills become `/ccsk-<name>` commands, agents become bare project subagents — so the kit is self-contained and travels with the repo. With **`--plugin`** the same skills/agents come from the installed plugin as colon commands (`/ccsk:plan`) and nothing is copied. Either way, rules, docs, and `.ccsk/` are materialized by the CLI, and the `ccsk-explain` output-style ships via `_dot_claude/`.
 
 ---
 

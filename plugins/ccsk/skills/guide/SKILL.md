@@ -17,7 +17,7 @@ On activation, emit one highlighted line first per the `announce-style` referenc
 > 📖 **Guide** · guide — {one concise clause on what you're doing}
 
 ## What ccsk is
-A **pure-markdown** Claude Code plugin that runs all work on one rhythm — the **Build Cadence** — backed by a self-learning memory loop under `.ccsk/`. No hooks, no scripts, no multi-model. Behavior lives in skills, agents, and always-on rules. Sessions **compound**: what you learn is written back and rehydrated next time.
+A **pure-markdown** Claude Code kit that runs all work on one rhythm — the **Build Cadence** — backed by a self-learning memory loop under `.ccsk/`. No hooks, no scripts, no multi-model. Behavior lives in skills, agents, and always-on rules. Sessions **compound**: what you learn is written back and rehydrated next time.
 
 ## The mental model — one rhythm
 ```
@@ -28,7 +28,7 @@ Frame  →  Forge  →  Prove  →  Sign-off
 - **Prove** — focused tests; show it side-effect free. (inside `/ccsk:build`)
 - **Sign-off** — separate-reviewer verdict + evidence + memory write-back. (inside `/ccsk:build`)
 
-Enter at the beat that fits. The `/ccsk:` commands are the doors; specialist agents execute the beats.
+Enter at the beat that fits. The ccsk commands are the doors; specialist agents execute the beats.
 
 ## Pick your door
 | Your situation | Enter at | Command |
@@ -53,7 +53,7 @@ Enter at the beat that fits. The `/ccsk:` commands are the doors; specialist age
 If `$ARGUMENTS` names a topic, route straight there: `cadence|plan|build` → `references/commands.md` + `references/walkthroughs.md`; `loop` → `references/commands.md` (loop section); `memory|agents` → `references/memory-and-agents.md`.
 
 ## Agent roster (cheat-sheet)
-12 specialists, each a narrow remit + least-privilege tools, invoked as `ccsk:<name>`:
+12 specialists, each a narrow remit + least-privilege tools, invoked as project subagents (`<name>` when materialized; `ccsk:<name>` with the `--plugin` delivery):
 
 | Agent | Does | Agent | Does |
 |---|---|---|---|
