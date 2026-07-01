@@ -23,6 +23,7 @@ Commands (`/ccsk:plan`, `/ccsk:execute`, `/ccsk:loop`) are entry points into the
 
 ## Forge — implement against an agreed design
 
+- **Default: delegate the slice to a `ccsk:executor` subagent** via the delegation packet (orchestration-protocols); act inline only on trivial, one-slice work.
 - Change existing files when that fits the design. Create files only for real boundaries — never spawn an `*-enhanced` / `*-v2` duplicate of a file that already exists (development-rules).
 - Work **one slice at a time**. Keep behavior backward-compatible unless the accepted scope explicitly says otherwise.
 - Prefer existing helpers, patterns, and test utilities over new abstractions (KISS / DRY / YAGNI).
@@ -31,6 +32,7 @@ Commands (`/ccsk:plan`, `/ccsk:execute`, `/ccsk:loop`) are entry points into the
 
 ## Prove — verification is part of "done", not optional
 
+- **Default: delegate to a `ccsk:tester` subagent** to author and run the focused tests (orchestration-protocols); run inline only for a trivial one-slice change.
 - Run **focused** tests for the behavior you touched. Broaden to lint / typecheck / build when you changed a shared contract.
 - Fix regressions at the source — never weaken or delete a test to make the suite green.
 - A change is not done until it is shown side-effect free: every acceptance criterion met; no regression in the blast radius; no new lint / type / build error; public contracts intact unless explicitly scoped to alter them.

@@ -28,12 +28,14 @@ On activation, announce yourself first per the `announce-style` reference — em
 
 ## Forge (per phase)
 - Write `STATUS.md` at phase start (active-phase, next-action).
-- Implement **one slice at a time** against the phase's acceptance criteria. Edit existing files; create only for real boundaries (development-rules — no `*-v2` duplicates). Match surrounding style + naming.
-- For bugs: reproduce → prove cause → fix (Red/Green where supported).
+- **Delegate the build to a `ccsk:executor` subagent** (orchestration-protocols), one slice at a time against the phase's acceptance criteria. Hand it the delegation packet: **Task** (the slice as a verifiable goal), **Read set** (the phase's files + the conventions to match), **Write set** (files it may touch — edit existing; create only for real boundaries, no `*-v2` duplicates per development-rules), **Acceptance criteria** (the phase's `[ ]` checks), **Constraints** (stack, naming, backward-compat, file-size budget, and that Prove/Sign-off stay with the controller — out of scope for it), **Context** (decisions already made, summarized — never the transcript), **Report path** (`.ccsk/plans/{dir}/reports/`). Integrate what returns and keep your own context clean — hold the thread, not the depth.
+  - **Trivial escape hatch:** for genuinely trivial, single-slice work, the controller may edit inline instead of spawning — match surrounding style + naming.
+- For bugs: reproduce → prove cause → fix (Red/Green where supported); route deep or cross-module root-cause to a `ccsk:debugger` subagent.
 - **Journal continuously** (memory-protocol): append the decision + why + what hurt to `.ccsk/journals/<date>-<slug>.md` as you go — not batched at the end.
 
 ## Prove
-- Run **focused** tests for the touched behavior; broaden to lint/typecheck/build when you changed a shared contract. Capture the exact command + exit code + key output (needed at Sign-off).
+- **Delegate verification to a `ccsk:tester` subagent** (orchestration-protocols). Packet: **Task** = prove the touched behavior (author/extend and run the focused tests); **Read set** = the changed files + existing test utilities; **Write set** = test files only; **Acceptance criteria** = focused tests pass, no regression in the blast radius, and broaden to lint/typecheck/build when a shared contract changed; **Constraints** = reuse existing test helpers, never weaken or delete a test; **Context** = what the Forge slice changed and the acceptance criteria it targeted (summarized — never the transcript); **Report path** = the plan's `reports/`. It MUST return the **exact command + exit code + key output** (needed at Sign-off).
+  - **Trivial escape hatch:** for a one-slice change with an obvious existing test path, the controller may run the focused tests inline.
 - Fix regressions at the source — never weaken/delete a test.
 
 ## Sign-off — **HARD GATE**

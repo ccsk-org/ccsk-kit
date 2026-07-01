@@ -8,6 +8,19 @@ This kit uses **single-subagent delegation**: spawn one specialist at a time. **
 
 Plugin agents are invoked by their namespaced `subagent_type`: `ccsk:planner`, `ccsk:code-reviewer`, `ccsk:executor`, `ccsk:tester`, `ccsk:debugger`, `ccsk:researcher`, `ccsk:brainstormer`, `ccsk:designer`, `ccsk:docs-manager`, `ccsk:journal-writer`, `ccsk:git-manager`, `ccsk:code-simplifier`.
 
+## Beat ownership — each cadence beat delegates to its specialist
+
+Each Build-Cadence beat has a default owner; the controller integrates results and owns the human gates. Act inline only on trivial, one-slice work.
+
+| Beat | Default specialist | Notes |
+|---|---|---|
+| Frame | `ccsk:planner` (+ `ccsk:researcher`, `ccsk:brainstormer`, `ccsk:designer`) | via `/ccsk:plan` |
+| Forge | `ccsk:executor` | deep root-cause → `ccsk:debugger` |
+| Prove | `ccsk:tester` | |
+| Sign-off | `ccsk:code-reviewer` | **hard gate — a separate subagent, never inlined** |
+
+`/ccsk:loop` is the exception: it runs **in-session** and does not delegate. The Sign-off reviewer is the one delegation that has **no** trivial escape hatch.
+
 ## Model & effort tiering (source of truth)
 
 **Governing principle:** tier = *comprehension difficulty × downstream blast radius*, not writing volume. `model` sets the reasoning ceiling; `effort` is set by task shape (search space + verifiability), **not** mapped 1:1 to model. Pin the gates so a cheap session can't silently weaken them; let generative agents inherit the session model; keep the plumbing cheap. *Rejected:* pinning all 12 (disables the session-model dial); copying a reference kit's models verbatim (left `tester`/`researcher` on the cheapest tier → false-green tests and hallucinated facts feeding the plan). Values are tunable here — this table is authoritative.
