@@ -13,3 +13,6 @@ dist/
 # Local tool caches (not part of the kit)
 .serena/
 .claude/
+
+# ccsk process memory — local by default (the shipped scaffold is _dot_ccsk/)
+.ccsk/
