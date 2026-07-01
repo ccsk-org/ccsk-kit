@@ -8,7 +8,7 @@ The kit runs on one rhythm, the **Build Cadence**:
 Frame  →  Forge  →  Prove  →  Sign-off
 ```
 
-Commands (`/ccsk:plan`, `/ccsk:execute`, `/ccsk:loop`) are entry points into the cadence. Specialist agents execute its beats (see `orchestration-protocols.md`). Rules are the contract. Skills are on-demand domain knowledge the model activates by description match. Memory is maintained per `memory-protocol.md`.
+Commands (`/ccsk:plan`, `/ccsk:execute`, `/ccsk:loop`, `/ccsk:adopt`) are entry points into the cadence. Specialist agents execute its beats (see `orchestration-protocols.md`). Rules are the contract. Skills are on-demand domain knowledge the model activates by description match. Memory is maintained per `memory-protocol.md`.
 
 ---
 
@@ -61,6 +61,7 @@ An inline `autonomy: auto` directive may skip *non-destructive* confirmations on
 
 | Situation | Enter at | Use |
 |---|---|---|
+| Fresh install / repo the kit doesn't know yet | pre-Frame | `/ccsk:adopt` |
 | Scope unclear, multi-phase, or risky | **Frame** | `/ccsk:plan` |
 | A plan already exists, or scope is clear | **Forge** | `/ccsk:execute` |
 | Improving one measurable metric repeatedly | **Loop** | `/ccsk:loop` |

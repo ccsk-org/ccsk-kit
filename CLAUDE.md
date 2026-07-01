@@ -15,6 +15,7 @@ Entry points:
 - **`/ccsk:execute`** — Forge → Prove → Sign-off. Implement a plan or clear task with mandatory tests + a separate-reviewer gate + memory write-back.
 - **`/ccsk:loop`** — autonomous optimization loop for one measurable metric.
 - **`/ccsk:rehydrate`** — restore context from memory (auto-activates; **run before `/ccsk:execute`**).
+- **`/ccsk:adopt`** — cold-start on an existing repo: scout the codebase and populate the six evergreen `docs/*` from cited code (`--fast` / `--skip` / `--docs` / `--dry-run` / `--yes` / `--force`). Docs only — never mutates the shipped rules.
 
 ## The contract (rules — always on)
 

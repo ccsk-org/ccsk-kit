@@ -56,7 +56,7 @@ Cross-cutting roles (Tier 2):
 ## Component → form + glyph
 
 **Skills — boxed (stage entry):** `plan` 🧭 · `build` 🔨 · `loop` ⟳ · `debug` 🐛
-· `code-review` 🔍 · `security-review` 🛡️ · `research` 🔬 · `rehydrate` 🧭
+· `code-review` 🔍 · `security-review` 🛡️ · `research` 🔬 · `rehydrate` 🧭 · `adopt` 🧭
 
 **Skills — inline (advisory):** `brainstorm` 💡 · `docs-sync` 📄 · `journal` 📓
 · `retro` 📓 · `guide` 📖

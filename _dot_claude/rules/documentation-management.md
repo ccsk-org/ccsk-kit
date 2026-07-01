@@ -27,6 +27,7 @@ Update an evergreen doc **only** when one of these actually happened — never c
 - **Evidence-based.** Write what the code does now, verified — not aspirations. Cite file paths.
 - **Update in place.** Refresh the relevant section; don't append a parallel "v2" doc.
 - The `docs-sync` skill and `ccsk:docs-manager` agent do this work; they run at **Sign-off** when a trigger fired.
+- **Cold start vs. incremental.** `/ccsk:adopt` **populates** the six docs from scratch on a fresh repo (template TODOs → cited facts); `docs-sync` **updates** them incrementally when a drift trigger fires. Same six docs, opposite entry conditions — don't run `docs-sync`'s no-churn logic during a first-run fill.
 - Keep `./docs` readable and current; keep depth/working-state in `.ccsk/`.
 
 ## Drift checking

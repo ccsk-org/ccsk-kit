@@ -54,6 +54,7 @@ Every non-trivial task moves through four beats. Enter at the one that fits — 
 
 | Situation | Enter at | Command |
 |---|---|---|
+| Fresh install / repo the kit doesn't know yet | pre-Frame | `/ccsk:adopt` |
 | Scope unclear, multi-phase, or risky | **Frame** | `/ccsk:plan` |
 | A plan exists, or scope is clear | **Forge** | `/ccsk:execute` |
 | Improving one measurable metric repeatedly | **Loop** | `/ccsk:loop` |
