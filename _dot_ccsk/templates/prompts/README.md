@@ -1,6 +1,6 @@
 # Prompt templates
 
-Reusable prompt scaffolds you can paste into `/ccsk:plan` or `/ccsk:build` to give the kit a complete, well-shaped brief for common task types. They encode the Clarify-gate questions up front so the cadence has fewer gaps to stop at.
+Reusable prompt scaffolds you can paste into `/ccsk:plan` or `/ccsk:execute` to give the kit a complete, well-shaped brief for common task types. They encode the Clarify-gate questions up front so the cadence has fewer gaps to stop at.
 
 Suggested scaffolds (add as your project needs them):
 

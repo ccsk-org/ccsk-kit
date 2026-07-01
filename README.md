@@ -8,14 +8,14 @@
 
 <sub>**Plugin · `/ccsk:` commands · 16 Skills · 12 Agents · 7 Rules · self-learning memory**</sub>
 
-![version](https://img.shields.io/badge/version-2.0.0--beta--02-D9A24A)
+![version](https://img.shields.io/badge/version-2.0.0--beta--05-D9A24A)
 ![MIT](https://img.shields.io/badge/license-MIT-1A1A1A)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-D97757)
 ![pure markdown](https://img.shields.io/badge/pure-markdown-3F9B6B)
 ![no hooks](https://img.shields.io/badge/no-hooks-6B7280)
-![no multi-model](https://img.shields.io/badge/no-multi--model-6B7280)
+![tiered model/effort](https://img.shields.io/badge/tiered-model%2Feffort-3F9B6B)
 
-> A lean, **pure-markdown** Claude Code kit shipped as a **plugin**: one Build Cadence, `/ccsk:` workflow commands, a focused specialist roster, an autonomous optimization loop, and a self-learning memory loop that compounds across sessions. No hooks, no Node scripts, no multi-model machinery — nothing to break silently.
+> A lean, **pure-markdown** Claude Code kit shipped as a **plugin**: one Build Cadence, `/ccsk:` workflow commands, a focused specialist roster, an autonomous optimization loop, and a self-learning memory loop that compounds across sessions. No hooks, no Node scripts; per-agent model/effort tiering — nothing to break silently.
 
 </div>
 
@@ -24,8 +24,8 @@
 </div>
 
 > [!IMPORTANT]
-> **This is `v2.0.0-beta-02` — a prerelease.** v2 is a ground-up rebuild (plugin distribution + `/ccsk:` colon commands + a self-learning memory loop). The latest **stable** kit is **v1.1.0** (older `/ccsk-plan` hyphen commands), so a default `ccsk init` installs **v1.1.0**. To get v2, opt in:
-> `ccsk init --pre` · `ccsk init --version 2.0.0-beta-02` · or pick it in the `ccsk init` version picker.
+> **This is `v2.0.0-beta-05` — a prerelease.** v2 is a ground-up rebuild (plugin distribution + `/ccsk:` colon commands + a self-learning memory loop). The latest **stable** kit is **v1.1.0** (older `/ccsk-plan` hyphen commands), so a default `ccsk init` installs **v1.1.0**. To get v2, opt in:
+> `ccsk init --pre` · `ccsk init --version 2.0.0-beta-05` · or pick it in the `ccsk init` version picker.
 > (Installing the plugin directly from `main` — see below — also gives you v2.)
 
 ---
@@ -36,7 +36,7 @@
 - 🧠 **Self-learning, pull-based** — work persists to `.ccsk/` (plan ledger, journals, retros, ADRs, milestones, `MEMORY.md`); `/ccsk:rehydrate` reads it back and reconciles against the code, so sessions compound instead of starting cold. No hooks required.
 - ♻️ **Approve once, then let it run** — gated autonomy self-drives the cadence and pauses only at the human-owned gates (clarify · destructive ops · push). The `/ccsk:loop` improves a metric on its own, keeping only what provably helps.
 - 🔒 **Verifiable Sign-off** — a task can't be "done" without test evidence + a **separate-reviewer** verdict + the memory write-back. Safety lives in a never-auto denylist, inlined where it acts.
-- 👥 **12 specialist agents** — planner, executor, reviewer, tester, debugger, designer, and more — each a narrow remit, least-privilege tools, model-agnostic.
+- 👥 **12 specialist agents** — planner, executor, reviewer, tester, debugger, designer, and more — each a narrow remit, least-privilege tools, tiered by model/effort.
 - 🧩 **A real delegation contract** — every subagent gets a complete packet and returns a typed status; file-ownership rules keep parallel work collision-free.
 - 🪶 **Pure markdown** — behavior lives in skills, agents, and rules. Portable, transparent, diffable.
 
@@ -55,7 +55,7 @@ Every non-trivial task moves through four beats. Enter at the one that fits — 
 | Situation | Enter at | Command |
 |---|---|---|
 | Scope unclear, multi-phase, or risky | **Frame** | `/ccsk:plan` |
-| A plan exists, or scope is clear | **Forge** | `/ccsk:build` |
+| A plan exists, or scope is clear | **Forge** | `/ccsk:execute` |
 | Improving one measurable metric repeatedly | **Loop** | `/ccsk:loop` |
 | Resuming work / after compaction | (pre-flight) | `/ccsk:rehydrate` |
 | Need options before committing | pre-Frame | `/ccsk:brainstorm` |
@@ -71,7 +71,7 @@ Memory is plain markdown under `.ccsk/` (gitignored by default — local-only; o
 
 ### Agents & orchestration
 
-The controller delegates each beat to a specialist (one at a time — single-subagent, no fan-out, no multi-model). Two rules are the contract: **`primary-workflows`** (the cadence) and **`orchestration-protocols`** (the delegation packet + typed status codes).
+The controller delegates each beat to a specialist (one at a time — single-subagent, no fan-out; each agent tiered by model/effort). Two rules are the contract: **`primary-workflows`** (the cadence) and **`orchestration-protocols`** (the delegation packet + typed status codes).
 
 <div align="center">
 <img src=".github/assets/agent-roster.svg" alt="12 agents grouped by cadence beat" width="900">
@@ -151,7 +151,7 @@ CLAUDE.md      loads the rules · docs/  evergreen documentation skeleton
 ## Design choices
 
 - **Pure markdown, no hooks.** Enforcement (gates, denylist) is honored by the model and wired into the cadence + inlined at point-of-action, not by OS hooks.
-- **No multi-model.** Agents carry no `model:` and inherit your session model (set it before `/ccsk:loop`).
+- **Tiered model/effort.** Each agent declares its own `model:`/`effort:` — correctness gates pinned (e.g. `code-reviewer`→opus), generative agents inherit your session model (set it before `/ccsk:loop`). Table in `orchestration-protocols`.
 - **Single-subagent delegation.** One specialist at a time; parallel only on disjoint write-sets. No Agent-Teams fan-out.
 - **Memory local by default.** `.ccsk/` is gitignored; opt in to commit for team/cross-machine learning.
 

@@ -6,15 +6,15 @@
   },
   "metadata": {
     "description": "ccsk — a lean, pure-markdown Claude Code kit: one Build Cadence, /ccsk: workflow commands, a focused agent roster, and a self-learning memory loop.",
-    "version": "2.0.0-beta-04",
+    "version": "2.0.0-beta-05",
     "pluginRoot": "./plugins"
   },
   "plugins": [
     {
       "name": "ccsk",
       "source": "./plugins/ccsk",
-      "description": "Build Cadence (Frame → Forge → Prove → Sign-off) as /ccsk: commands, specialist agents, and a pull-based self-learning memory loop. Pure markdown, no hooks, no multi-model.",
-      "version": "2.0.0-beta-04",
+      "description": "Build Cadence (Frame → Forge → Prove → Sign-off) as /ccsk: commands, specialist agents, and a pull-based self-learning memory loop. Pure markdown, no hooks; tiered per-agent model/effort.",
+      "version": "2.0.0-beta-05",
       "author": { "name": "ccsk" },
       "homepage": "https://github.com/ccsk-org/ccsk-kit",
       "repository": "https://github.com/ccsk-org/ccsk-kit",

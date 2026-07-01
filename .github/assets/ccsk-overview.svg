@@ -24,7 +24,7 @@
     <text x="118" y="138" text-anchor="middle" font-size="10.5" fill="#6B7280">Frame the work</text>
 
     <rect x="206" y="100" width="156" height="46" rx="10" fill="#FFFFFF" stroke="#E7E2DC"/>
-    <text x="284" y="123" text-anchor="middle" font-size="12.5" font-weight="700" fill="#B4502F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/ccsk:build</text>
+    <text x="284" y="123" text-anchor="middle" font-size="12.5" font-weight="700" fill="#B4502F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/ccsk:execute</text>
     <text x="284" y="138" text-anchor="middle" font-size="10.5" fill="#6B7280">Forge → Sign-off</text>
 
     <rect x="372" y="100" width="156" height="46" rx="10" fill="#FFFFFF" stroke="#E7E2DC"/>

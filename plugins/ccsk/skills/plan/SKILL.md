@@ -1,6 +1,6 @@
 ---
 name: plan
-description: Design before code — survey the repo, clarify scope, research, and write a phased, reviewed implementation plan into .ccsk/plans/. Use when scope is unclear, multi-phase, or risky, when starting a feature, or before /ccsk:build. Writes Markdown only, never code.
+description: Design before code — survey the repo, clarify scope, research, and write a phased, reviewed implementation plan into .ccsk/plans/. Use when scope is unclear, multi-phase, or risky, when starting a feature, or before /ccsk:execute. Writes Markdown only, never code.
 when_to_use: Invoke to turn an intent into a reviewed, phased plan before any implementation. Triggers — "plan this", "design", "how should we build", feature requests, multi-step work.
 argument-hint: "[task description, or a path to an existing .ccsk/plans/<dir> to refine]"
 allowed-tools: Read, Glob, Grep, Bash, Task, WebSearch, WebFetch, AskUserQuestion, Write, Edit
@@ -8,7 +8,7 @@ allowed-tools: Read, Glob, Grep, Bash, Task, WebSearch, WebFetch, AskUserQuestio
 
 # /ccsk:plan — the Frame beat
 
-> Turn an intent into a reviewed, phased, self-contained plan under `.ccsk/plans/` — **zero code written**. This is the disciplined front door before `/ccsk:build`.
+> Turn an intent into a reviewed, phased, self-contained plan under `.ccsk/plans/` — **zero code written**. This is the disciplined front door before `/ccsk:execute`.
 
 Contract: `.claude/rules/primary-workflows.md` (cadence + clarify gate + autonomy), `.claude/rules/memory-protocol.md` (artifacts + paths), `.claude/rules/orchestration-protocols.md` (delegation), `.claude/rules/common-rules.md` (denylist, token discipline).
 
@@ -24,7 +24,7 @@ On activation, announce yourself first per the `announce-style` reference — em
 ## Pre-flight (non-negotiable)
 1. **Rehydrate first.** Read `.ccsk/MEMORY.md` + the most recent in-progress `STATUS.md` + recent journals before surveying (memory-protocol). Skip only on a brand-new repo.
 2. **Don't assume. Don't guess. Surface concerns.** Ask the user for decisions the user owns (`AskUserQuestion`), grounded in Survey findings.
-3. **Markdown only — never code.** Implementation belongs to `/ccsk:build`.
+3. **Markdown only — never code.** Implementation belongs to `/ccsk:execute`.
 
 ## Flow
 
@@ -55,14 +55,14 @@ Spawn `ccsk:planner` to produce the architecture and phase breakdown. Each phase
 For security / payments / data / public-API plans, run one adversarial pass (`ccsk:planner` or `ccsk:brainstormer` wearing a red-team hat) and reconcile findings before handoff.
 
 ### 9. Handoff
-Write `STATUS.md` (active-plan, phase 01, next-action). `AskUserQuestion`: proceed to `/ccsk:build {plan-dir}`, refine, or stop. Return the absolute plan path + a one-paragraph summary of what was decided.
+Write `STATUS.md` (active-plan, phase 01, next-action). `AskUserQuestion`: proceed to `/ccsk:execute {plan-dir}`, refine, or stop. Return the absolute plan path + a one-paragraph summary of what was decided.
 
 ## Anti-patterns (rejected)
 - Asking what a `grep` answers in five seconds.
-- Writing code (that's `/ccsk:build`).
+- Writing code (that's `/ccsk:execute`).
 - An `01-PLAN.md` index over 100 lines, or duplicated checkbox state in phase files.
 - A version number you didn't verify this session.
 - A fabricated timestamp (always run `date`).
 
 ## Output
-The plan dir is the exact input `/ccsk:build` consumes — the acceptance criteria written here become build's Prove-beat gates.
+The plan dir is the exact input `/ccsk:execute` consumes — the acceptance criteria written here become build's Prove-beat gates.

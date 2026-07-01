@@ -44,7 +44,7 @@ It's cheap and habitual; it preserves *position* if the session dies mid-beat.
 
 ## Rehydrate (pull-based; auto-activates; precondition of build)
 
-`ccsk-rehydrate` runs at session start / continuation and **before any `/ccsk:build`**:
+`ccsk-rehydrate` runs at session start / continuation and **before any `/ccsk:execute`**:
 
 1. Read `STATUS.md` of the most recent in-progress plan **first**.
 2. Read `MEMORY.md` and **dereference its top-N relevant pointers** (open the ADRs/journals it points to — listing them is not reading them).

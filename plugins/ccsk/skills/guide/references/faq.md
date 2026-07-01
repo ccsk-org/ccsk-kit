@@ -4,7 +4,7 @@ The footguns that fight the kit, and the fix. Grounded in `.claude/rules/primary
 
 ---
 
-### "I ran `/ccsk:build` and it acted on stale state."
+### "I ran `/ccsk:execute` and it acted on stale state."
 **Pitfall:** skipping rehydrate. Trusting `[x]` checkboxes that don't match the code.
 **Fix:** rehydrate is a **precondition** of build — let it run, and let it *reconcile* (it checks files exist and tests pass for "done" phases, flagging mismatches as suspect). Resuming after compaction? Invoke `/ccsk:rehydrate` explicitly first for the briefing.
 
@@ -18,14 +18,14 @@ The footguns that fight the kit, and the fix. Grounded in `.claude/rules/primary
 
 ### "I asked for a one-line change and got a whole plan."
 **Pitfall:** over-planning trivial work.
-**Fix:** the cadence is for work that's *more than a one-line answer*. For a trivial edit or a direct factual answer, skip the ceremony — go straight to `/ccsk:build` (or just answer). Reserve `/ccsk:plan` for unclear, multi-phase, or risky scope.
+**Fix:** the cadence is for work that's *more than a one-line answer*. For a trivial edit or a direct factual answer, skip the ceremony — go straight to `/ccsk:execute` (or just answer). Reserve `/ccsk:plan` for unclear, multi-phase, or risky scope.
 
 ### "It built something that ignores our existing patterns."
 **Pitfall:** inventing a new abstraction instead of reusing.
 **Fix:** Forge prefers existing helpers, patterns, and test utilities (KISS / DRY / YAGNI) and matches surrounding style. It edits existing files rather than spawning `*-v2`/`*-enhanced` duplicates. If it's not reusing, point it at the convention — or rehydrate so `MEMORY.md` conventions are in context.
 
 ### "Which command do I start with?"
-**Fix:** golden path is `/ccsk:rehydrate` → `/ccsk:plan` → `/ccsk:build`. Clear small change → `/ccsk:build` directly (it rehydrates for you). One metric to move → `/ccsk:loop`. Need options first → `/ccsk:brainstorm`.
+**Fix:** golden path is `/ccsk:rehydrate` → `/ccsk:plan` → `/ccsk:execute`. Clear small change → `/ccsk:execute` directly (it rehydrates for you). One metric to move → `/ccsk:loop`. Need options first → `/ccsk:brainstorm`.
 
 ### "Can I call the planner/executor/reviewer agents directly?"
 **Fix:** you normally don't — the `/ccsk:` commands orchestrate them for you (single-subagent delegation, one at a time). The agents are the *execution layer*; the commands are the doors. Spawn one directly only for a narrow, well-scoped subtask, and give it the full 7-part packet.

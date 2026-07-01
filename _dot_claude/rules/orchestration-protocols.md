@@ -4,9 +4,30 @@
 
 A subagent starts with a blank context. It knows only what the prompt tells it. Everything below exists to make that prompt complete, the work collision-free, and the result trustworthy when it comes back.
 
-This kit uses **single-subagent delegation**: spawn one specialist at a time. **No Agent-Teams fan-out, no multi-session orchestration, no per-agent model assignment** (agents inherit the session model). Parallel subagents are allowed only when write-sets are provably disjoint (see below).
+This kit uses **single-subagent delegation**: spawn one specialist at a time. **No Agent-Teams fan-out, no multi-session orchestration.** Each agent declares its own `model:`/`effort:` (the tiering table below) — the correctness gates are pinned so a cheap session can't silently weaken them, generative agents inherit the session model. Parallel subagents are allowed only when write-sets are provably disjoint (see below).
 
 Plugin agents are invoked by their namespaced `subagent_type`: `ccsk:planner`, `ccsk:code-reviewer`, `ccsk:executor`, `ccsk:tester`, `ccsk:debugger`, `ccsk:researcher`, `ccsk:brainstormer`, `ccsk:designer`, `ccsk:docs-manager`, `ccsk:journal-writer`, `ccsk:git-manager`, `ccsk:code-simplifier`.
+
+## Model & effort tiering (source of truth)
+
+**Governing principle:** tier = *comprehension difficulty × downstream blast radius*, not writing volume. `model` sets the reasoning ceiling; `effort` is set by task shape (search space + verifiability), **not** mapped 1:1 to model. Pin the gates so a cheap session can't silently weaken them; let generative agents inherit the session model; keep the plumbing cheap. *Rejected:* pinning all 12 (disables the session-model dial); copying a reference kit's models verbatim (left `tester`/`researcher` on the cheapest tier → false-green tests and hallucinated facts feeding the plan). Values are tunable here — this table is authoritative.
+
+| Agent | model | effort | Why this tier |
+|---|---|---|---|
+| `planner` | opus | high | Frame gate — design errors propagate everywhere |
+| `code-reviewer` | opus (pinned) | high | Attestation gate — never let a cheap session drop it to a rubber-stamp |
+| `code-simplifier` | opus | medium | Behavior-preserving refactor; bounded + test-backstopped |
+| `debugger` | sonnet | high | Root-cause; deep reasoning over a search space |
+| `brainstormer` | inherit | high | Advisory/non-binding; tracks the session, effort-high for breadth |
+| `executor` | sonnet | high | Value engine — writes production code |
+| `designer` | inherit | medium | Output is visually reviewable (loud failure) → flex with the session |
+| `tester` | sonnet | high | Prove gate — cheap models write false-green tests |
+| `researcher` | sonnet | medium | Cited facts feed the plan — cheap models hallucinate |
+| `docs-manager` | haiku | — | Evidence-based, human-reviewed edits |
+| `git-manager` | haiku | — | Deterministic 2–4 git calls |
+| `journal-writer` | haiku | — | Short, local, append-only |
+
+> `effort` is not supported on Haiku, so the haiku agents omit it. `effort` on an `inherit` agent applies only when the resolved session model supports it.
 
 ---
 

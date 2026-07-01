@@ -10,7 +10,7 @@
 
   <!-- title -->
   <text x="40" y="44" font-size="22" font-weight="700" fill="#1A1A1A">Agents &amp; Orchestration</text>
-  <text x="40" y="67" font-size="14" fill="#6B7280">12 specialists, delegated by cadence beat — one delegation contract, model-agnostic.</text>
+  <text x="40" y="67" font-size="14" fill="#6B7280">12 specialists, delegated by cadence beat — one delegation contract, tiered by model/effort.</text>
 
   <!-- controller -->
   <rect x="340" y="84" width="220" height="44" rx="10" fill="#1A1A1A"/>

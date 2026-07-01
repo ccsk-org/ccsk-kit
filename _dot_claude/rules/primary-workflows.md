@@ -8,14 +8,14 @@ The kit runs on one rhythm, the **Build Cadence**:
 Frame  →  Forge  →  Prove  →  Sign-off
 ```
 
-Commands (`/ccsk:plan`, `/ccsk:build`, `/ccsk:loop`) are entry points into the cadence. Specialist agents execute its beats (see `orchestration-protocols.md`). Rules are the contract. Skills are on-demand domain knowledge the model activates by description match. Memory is maintained per `memory-protocol.md`.
+Commands (`/ccsk:plan`, `/ccsk:execute`, `/ccsk:loop`) are entry points into the cadence. Specialist agents execute its beats (see `orchestration-protocols.md`). Rules are the contract. Skills are on-demand domain knowledge the model activates by description match. Memory is maintained per `memory-protocol.md`.
 
 ---
 
 ## Frame — understand before you touch anything
 
 - Read the request, the relevant `./docs`, and the nearby code **first**. Never plan from memory.
-- **Rehydrate first** (memory-protocol): before any non-trivial work, read `.ccsk/MEMORY.md`, the active plan's `STATUS.md`, and recent journals. This is mandatory before `/ccsk:build`.
+- **Rehydrate first** (memory-protocol): before any non-trivial work, read `.ccsk/MEMORY.md`, the active plan's `STATUS.md`, and recent journals. This is mandatory before `/ccsk:execute`.
 - **Survey** the codebase before asking the user anything: project type, language, framework, package manager; the modules the task touches; the conventions similar features already follow; in-flight plans under `.ccsk/plans/` that overlap; the public contracts (exports, routes, schemas, env vars) the task could disturb.
 - State a **3–6 bullet survey summary** back to the user before proposing work.
 - **Clarify gate (HARD):** before designing, the answer to all of these must be YES — *acceptance criteria defined? scope/files bounded? success metric stated?* If any is no, ask (prefer `AskUserQuestion`, grounded in Survey findings). Don't ask what a `grep` would answer in five seconds.
@@ -60,7 +60,7 @@ An inline `autonomy: auto` directive may skip *non-destructive* confirmations on
 | Situation | Enter at | Use |
 |---|---|---|
 | Scope unclear, multi-phase, or risky | **Frame** | `/ccsk:plan` |
-| A plan already exists, or scope is clear | **Forge** | `/ccsk:build` |
+| A plan already exists, or scope is clear | **Forge** | `/ccsk:execute` |
 | Improving one measurable metric repeatedly | **Loop** | `/ccsk:loop` |
 | Need options before committing to a design | pre-Frame | `ccsk:brainstormer` agent |
 

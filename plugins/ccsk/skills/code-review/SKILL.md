@@ -29,7 +29,7 @@ On activation, announce yourself first per the `announce-style` reference — em
 ## Rules
 - Evidence over opinion; cite `file:line`. No style nitpicks dressed as blockers.
 - A real correctness/security/contract problem ⇒ REJECT — surface it; don't smooth it over.
-- This skill does not edit code. To apply fixes, hand findings to `/ccsk:build`.
+- This skill does not edit code. To apply fixes, hand findings to `/ccsk:execute`.
 
 ## Output
 Ranked findings + the PASS/REJECT verdict + the verdict file path (this is what Sign-off cites).

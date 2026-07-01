@@ -1,13 +1,13 @@
 ---
 name: rehydrate
-description: Restore working context from durable memory at the start or continuation of a session — read STATUS, MEMORY (dereferencing its pointers), the active plan ledger, and recent journals, then reconcile against the actual code. Use when resuming work, after compaction, or before /ccsk:build. Auto-activates when starting or continuing a task.
+description: Restore working context from durable memory at the start or continuation of a session — read STATUS, MEMORY (dereferencing its pointers), the active plan ledger, and recent journals, then reconcile against the actual code. Use when resuming work, after compaction, or before /ccsk:execute. Auto-activates when starting or continuing a task.
 when_to_use: Invoke at session start/continuation and before building. Triggers — "continue", "resume", "where were we", "pick up", starting work in a repo that has a .ccsk/ memory.
 allowed-tools: Read, Glob, Grep, Bash
 ---
 
 # /ccsk:rehydrate — pull memory before working
 
-> The kit has no session-start hook, so this is the pull-based substitute. It is a **precondition of `/ccsk:build`** and should run whenever you start or continue work. Cheap, and it's what makes work compound instead of starting cold.
+> The kit has no session-start hook, so this is the pull-based substitute. It is a **precondition of `/ccsk:execute`** and should run whenever you start or continue work. Cheap, and it's what makes work compound instead of starting cold.
 
 Contract: `.claude/rules/memory-protocol.md`.
 
@@ -31,7 +31,7 @@ On activation, announce yourself first per the `announce-style` reference — em
    - Self-check the artifacts: no conflict markers (`<<<<<<<`), timestamps parse, progress %∈[0,100]. Repair or flag.
 
 ## Output
-A short briefing: active plan + phase, what's done vs remaining, key facts/decisions pulled from memory, any reconciliation discrepancies found. Then hand control back (usually to `/ccsk:build`).
+A short briefing: active plan + phase, what's done vs remaining, key facts/decisions pulled from memory, any reconciliation discrepancies found. Then hand control back (usually to `/ccsk:execute`).
 
 ## Notes
 - Run `date +%y%m%d-%H%M` if you need a timestamp; never infer.

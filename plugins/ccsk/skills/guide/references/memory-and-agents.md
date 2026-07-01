@@ -30,7 +30,7 @@ Honest residual: a session abandoned before Sign-off loses that beat's *lesson* 
 ---
 
 ## The agent roster — 12 specialists
-Each has a narrow remit and least-privilege tools, model-agnostic (agents inherit the session model). Invoked by namespaced `subagent_type` `ccsk:<name>`.
+Each has a narrow remit, least-privilege tools, and a tiered `model:`/`effort:` — correctness gates pinned, generative agents inherit the session model (table in `orchestration-protocols`). Invoked by namespaced `subagent_type` `ccsk:<name>`.
 
 | Agent | Remit |
 |---|---|
@@ -52,7 +52,7 @@ Note: the implementer is **`ccsk:executor`** (not "builder"). The executor write
 ---
 
 ## The delegation contract
-This kit uses **single-subagent delegation**: spawn one specialist at a time. No fan-out teams, no multi-session orchestration, no per-agent model assignment.
+This kit uses **single-subagent delegation**: spawn one specialist at a time. No fan-out teams, no multi-session orchestration; each agent carries its own model/effort tier.
 
 - **The packet (7 parts):** every subagent prompt carries Task · Read set · Write set · Acceptance criteria · Constraints · Context (summarized, never the raw transcript) · Report path. Missing any ⇒ guesswork.
 - **Typed status codes:** every subagent ends with `Status: DONE | DONE_WITH_CONCERNS | PARTIAL | BLOCKED | NEEDS_CONTEXT | REJECTED` + a one-line summary. Handle BLOCKED/NEEDS_CONTEXT/PARTIAL by changing the packet or approach — never by re-running the same failing prompt. A **REJECTED** verdict halts the cadence.

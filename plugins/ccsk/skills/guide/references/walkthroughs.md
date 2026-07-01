@@ -4,7 +4,7 @@ Four worked examples with the actual commands and what each beat produces. All p
 
 ---
 
-## A. New feature — `/ccsk:plan` → `/ccsk:build`
+## A. New feature — `/ccsk:plan` → `/ccsk:execute`
 The full cadence for non-trivial, multi-step work.
 
 ```
@@ -20,7 +20,7 @@ The full cadence for non-trivial, multi-step work.
 It pauses at the **clarify gate** and again at handoff: *proceed to build, refine, or stop?*
 
 ```
-/ccsk:build .ccsk/plans/260630-1015-rate-limiting
+/ccsk:execute .ccsk/plans/260630-1015-rate-limiting
 ```
 **Forge** — rehydrates first, hydrates each open `[ ]` into a working task, branches off `main`, then `ccsk:executor` implements one slice at a time, journaling continuously to `.ccsk/journals/`.
 **Prove** — focused tests for the touched behavior; captures the exact command + exit code + output.
@@ -28,11 +28,11 @@ It pauses at the **clarify gate** and again at handoff: *proceed to build, refin
 
 ---
 
-## B. Quick bugfix — straight to `/ccsk:build`
+## B. Quick bugfix — straight to `/ccsk:execute`
 Scope is clear and small. Skip planning; build rehydrates for you.
 
 ```
-/ccsk:build fix the off-by-one in pagination — last page drops a row
+/ccsk:execute fix the off-by-one in pagination — last page drops a row
 ```
 - Rehydrates `.ccsk/MEMORY.md` + recent journals, branches if on `main`.
 - **Reproduce → prove cause → fix** (Red/Green where the stack supports it) via `ccsk:executor` / `ccsk:debugger`.
@@ -65,12 +65,12 @@ Context was lost (long session, `/compact`, new day). Pull state back before doi
 ```
 /ccsk:rehydrate
 ```
-In order: read the most recent in-progress `STATUS.md` → read `MEMORY.md` and **dereference** its top pointers (open the ADRs/journals, don't just list them) → read the active `01-PLAN.md` ledger → skim recent journals → **reconcile against the code** (`git status`/`git diff`; for `[x]` phases, check files exist and tests pass; flag any box that doesn't match reality). Output is a short briefing — active plan + phase, done vs remaining, key decisions, discrepancies — then hand control to `/ccsk:build`.
+In order: read the most recent in-progress `STATUS.md` → read `MEMORY.md` and **dereference** its top pointers (open the ADRs/journals, don't just list them) → read the active `01-PLAN.md` ledger → skim recent journals → **reconcile against the code** (`git status`/`git diff`; for `[x]` phases, check files exist and tests pass; flag any box that doesn't match reality). Output is a short briefing — active plan + phase, done vs remaining, key decisions, discrepancies — then hand control to `/ccsk:execute`.
 
 ---
 
 ## A realistic Sign-off evidence block
-`/ccsk:build` may **not** declare DONE without citing all four:
+`/ccsk:execute` may **not** declare DONE without citing all four:
 
 ```
 Tests:   pytest tests/test_ratelimit.py -q → exit 0 ; 14 passed in 1.8s

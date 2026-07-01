@@ -1,12 +1,12 @@
 ---
-name: build
+name: execute
 description: Implement a plan or a clear task end-to-end through Forge → Prove → Sign-off, with mandatory tests, a separate-reviewer gate, and memory write-back. Use to build a feature, execute a .ccsk/plans/ plan, or make a scoped change with verification.
 when_to_use: Invoke to implement against an agreed design or clear scope. Triggers — "build", "implement", "make the change", executing an existing plan dir.
 argument-hint: "[path to a .ccsk/plans/<dir>, or a clear task description]"
 allowed-tools: Read, Glob, Grep, Bash, Task, Edit, Write, MultiEdit, AskUserQuestion
 ---
 
-# /ccsk:build — Forge → Prove → Sign-off
+# /ccsk:execute — Forge → Prove → Sign-off
 
 > Implement against an agreed design, prove it side-effect free, and leave the repo coherent. Self-drives under gated autonomy; pauses only at the human-owned gates.
 
@@ -16,7 +16,7 @@ Contract: `.claude/rules/primary-workflows.md` · `.claude/rules/memory-protocol
 On activation, announce yourself first per the `announce-style` reference — emit this inside a fenced code block (adjust the `─` fill so the box looks tidy; fill the second line with one concise clause):
 
 ```
-╭─ 🔨 FORGE ─ /ccsk:build ─────────────────────────────────╮
+╭─ 🔨 FORGE ─ /ccsk:execute ───────────────────────────────╮
 │  {one concise line — what this stage is doing}           │
 ╰──────────────────────────────────────────────────────────╯
 ```

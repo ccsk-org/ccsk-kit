@@ -29,4 +29,4 @@ A short comparison + a clear recommendation. If a real, non-obvious decision is 
 ## Anti-patterns
 - Listing near-identical options to look thorough.
 - Recommending without stating the trade-off you accepted.
-- Implementing anything (that's `/ccsk:build`).
+- Implementing anything (that's `/ccsk:execute`).

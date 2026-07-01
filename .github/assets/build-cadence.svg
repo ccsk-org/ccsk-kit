@@ -43,7 +43,7 @@
   <text x="125" y="252" text-anchor="middle" font-size="13" font-weight="600" fill="#B4502F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/ccsk:plan</text>
 
   <rect x="250" y="232" width="590" height="30" rx="8" fill="#F6E5DD" stroke="#E7C9BB"/>
-  <text x="545" y="252" text-anchor="middle" font-size="13" font-weight="600" fill="#B4502F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/ccsk:build</text>
+  <text x="545" y="252" text-anchor="middle" font-size="13" font-weight="600" fill="#B4502F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/ccsk:execute</text>
 
   <rect x="330" y="286" width="240" height="30" rx="8" fill="#FFFFFF" stroke="#E7C9BB"/>
   <text x="450" y="306" text-anchor="middle" font-size="13" font-weight="600" fill="#B4502F" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/ccsk:loop  ⟳ autonomous</text>

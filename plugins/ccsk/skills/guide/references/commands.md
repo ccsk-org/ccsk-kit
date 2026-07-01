@@ -8,16 +8,16 @@ Two kinds of skills are surfaced as `/ccsk:<name>`: **entry-point commands** tha
 
 ### `/ccsk:rehydrate` — pull memory before working
 - **Does:** restores context from durable memory — reads `STATUS.md`, `MEMORY.md` (dereferencing its pointers), the active plan ledger, recent journals, then **reconciles against the actual code**.
-- **Reach for it:** resuming work, after compaction, "where were we", and **before every `/ccsk:build`** (it's a precondition — build runs it for you, but invoke it directly when you just want the briefing).
+- **Reach for it:** resuming work, after compaction, "where were we", and **before every `/ccsk:execute`** (it's a precondition — `/ccsk:execute` runs it for you, but invoke it directly when you just want the briefing).
 - **Writes:** nothing (read-only). Outputs a short briefing.
 
 ### `/ccsk:plan` — the Frame beat
 - **Does:** surveys the repo, clarifies scope at a hard gate, optionally researches, and writes a phased, reviewed plan. **Markdown only — never code.**
-- **Reach for it:** scope unclear, multi-phase, or risky; starting a feature; before `/ccsk:build`.
+- **Reach for it:** scope unclear, multi-phase, or risky; starting a feature; before `/ccsk:execute`.
 - **Writes:** a plan dir `.ccsk/plans/<YYMMDD-HHMM-slug>/` — `01-PROMPT.md`, `01-CLARIFY.md`, optional `01-RESEARCH.md` / `01-UI_UX.md`, the `01-PLAN.md` ledger, and `STATUS.md`.
 - **Arg:** a task description, or a path to an existing plan dir to refine.
 
-### `/ccsk:build` — Forge → Prove → Sign-off
+### `/ccsk:execute` — Forge → Prove → Sign-off
 - **Does:** implements against an agreed design with mandatory tests, a **separate-reviewer** Sign-off gate, and memory write-back. Self-drives under gated autonomy.
 - **Reach for it:** a plan exists, or the scope is clear and bounded (including quick bugfixes). If scope turns out unclear/multi-phase, it stops and routes to `/ccsk:plan`.
 - **Writes:** code in the tree; updates `01-PLAN.md` boxes + `STATUS.md`; a reviewer verdict in the plan's `reports/`; a journal entry + `MEMORY.md` pointer (+ ADR when a real decision was made).

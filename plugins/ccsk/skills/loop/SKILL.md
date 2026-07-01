@@ -8,7 +8,7 @@ allowed-tools: Read, Edit, MultiEdit, Write, Bash, Glob, Grep, AskUserQuestion
 
 # /ccsk:loop — autonomous metric loop
 
-> Drive one measurable metric without re-prompting. **Prime directive: one change, committed, measured, kept only if it provably helps.** Runs **in-session** (no subagents, no multi-model). Memory = git history + `loop-log.tsv`.
+> Drive one measurable metric without re-prompting. **Prime directive: one change, committed, measured, kept only if it provably helps.** Runs **in-session** (no subagents; uses your session model). Memory = git history + `loop-log.tsv`.
 
 Contract: `.claude/rules/common-rules.md` (denylist), `.claude/rules/primary-workflows.md` (autonomy).
 
