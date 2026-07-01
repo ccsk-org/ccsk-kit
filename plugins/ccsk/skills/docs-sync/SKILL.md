@@ -11,6 +11,11 @@ allowed-tools: Read, Glob, Grep, Bash, Edit, Write, Task
 
 Contract: `.claude/rules/documentation-management.md` (the skeleton + triggers).
 
+## Announce
+On activation, emit one highlighted line first per the `announce-style` reference:
+
+> 📄 **Docs** · docs-sync — {one concise clause on what you're doing}
+
 ## When to run
 Only if a trigger actually fired: phase/milestone status change · major feature added/removed · significant bug/security fix changing behavior · timeline/scope change · breaking dependency/contract change · architecture/public-contract change. No trigger ⇒ do nothing.
 

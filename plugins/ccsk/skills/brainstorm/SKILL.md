@@ -11,6 +11,11 @@ allowed-tools: Read, Glob, Grep, Bash, Task, WebSearch, WebFetch, AskUserQuestio
 
 Contract: `.claude/rules/common-rules.md`, `.claude/rules/primary-workflows.md`.
 
+## Announce
+On activation, emit one highlighted line first per the `announce-style` reference:
+
+> 💡 **Brainstorm** · brainstorm — {one concise clause on what you're doing}
+
 ## Method
 1. **Ground first.** Read the relevant code/docs and `.ccsk/MEMORY.md` so options fit reality, not generic advice. Use `ccsk:brainstormer` or `ccsk:researcher` for unknowns rather than guessing.
 2. **Generate 2–4 distinct approaches** — distinct in mechanism, not cosmetics (e.g. MVP-first vs risk-first vs reuse-existing). For each: how it works, what it costs, what it risks, when it's the right call.

@@ -11,6 +11,11 @@ allowed-tools: Read, Glob, Grep, Bash, Write
 
 Contract: `.claude/rules/memory-protocol.md` (owns MEMORY compaction), `.claude/rules/documentation-management.md`.
 
+## Announce
+On activation, emit one highlighted line first per the `announce-style` reference:
+
+> 📓 **Retro** · retro — {one concise clause on what you're doing}
+
 ## Method
 1. **Pick the window** (since a date/tag/milestone). Gather signals:
    - `git log --since=<date> --oneline`, `git diff --stat <range>` → churn, hotspots, commit cadence.

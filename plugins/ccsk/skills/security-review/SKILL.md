@@ -11,6 +11,15 @@ allowed-tools: Read, Glob, Grep, Bash, Task
 
 Contract: `.claude/rules/common-rules.md` (never print secrets), `.claude/rules/orchestration-protocols.md`.
 
+## Announce
+On activation, announce yourself first per the `announce-style` reference — emit this inside a fenced code block (adjust the `─` fill so the box looks tidy; fill the second line with one concise clause):
+
+```
+╭─ 🛡️ SECURITY ─ /ccsk:security-review ────────────────────╮
+│  {one concise line — what this stage is doing}           │
+╰──────────────────────────────────────────────────────────╯
+```
+
 ## Scope declaration (first)
 State exactly what is in scope (files/paths/diff) and out of scope. Security findings escalate to a human — never auto-"fix and move on" a security issue silently.
 

@@ -12,6 +12,15 @@ allowed-tools: Read, Edit, MultiEdit, Write, Bash, Glob, Grep, AskUserQuestion
 
 Contract: `.claude/rules/common-rules.md` (denylist), `.claude/rules/primary-workflows.md` (autonomy).
 
+## Announce
+On activation, announce yourself first per the `announce-style` reference — emit this inside a fenced code block (adjust the `─` fill so the box looks tidy; fill the second line with one concise clause):
+
+```
+╭─ ⟳ LOOP ─ /ccsk:loop ────────────────────────────────────╮
+│  {one concise line — what this stage is doing}           │
+╰──────────────────────────────────────────────────────────╯
+```
+
 ## Config (parse from `$ARGUMENTS`: a bare goal, or `Key: value` lines)
 | Key | Required | Default |
 |---|---|---|

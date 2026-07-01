@@ -11,6 +11,11 @@ allowed-tools: Read, Bash, Write, Edit, Task
 
 Contract: `.claude/rules/memory-protocol.md`, `.claude/rules/documentation-management.md` (evidence-based).
 
+## Announce
+On activation, emit one highlighted line first per the `announce-style` reference:
+
+> 📓 **Journal** · journal — {one concise clause on what you're doing}
+
 ## How
 1. Path: `.ccsk/journals/<YYMMDD>-<slug>.md` (run `date +%y%m%d` — never infer). One file per day-topic; **append, never edit past entries**.
 2. Each entry (terse — sacrifice grammar for concision):

@@ -12,6 +12,15 @@ allowed-tools: Read, Glob, Grep, Bash, Task, WebSearch, WebFetch, AskUserQuestio
 
 Contract: `.claude/rules/primary-workflows.md` (cadence + clarify gate + autonomy), `.claude/rules/memory-protocol.md` (artifacts + paths), `.claude/rules/orchestration-protocols.md` (delegation), `.claude/rules/common-rules.md` (denylist, token discipline).
 
+## Announce
+On activation, announce yourself first per the `announce-style` reference — emit this inside a fenced code block (adjust the `─` fill so the box looks tidy; fill the second line with one concise clause):
+
+```
+╭─ 🧭 FRAME ─ /ccsk:plan ──────────────────────────────────╮
+│  {one concise line — what this stage is doing}           │
+╰──────────────────────────────────────────────────────────╯
+```
+
 ## Pre-flight (non-negotiable)
 1. **Rehydrate first.** Read `.ccsk/MEMORY.md` + the most recent in-progress `STATUS.md` + recent journals before surveying (memory-protocol). Skip only on a brand-new repo.
 2. **Don't assume. Don't guess. Surface concerns.** Ask the user for decisions the user owns (`AskUserQuestion`), grounded in Survey findings.

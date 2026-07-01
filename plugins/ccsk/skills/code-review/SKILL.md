@@ -11,6 +11,15 @@ allowed-tools: Read, Glob, Grep, Bash, Task
 
 Contract: `.claude/rules/orchestration-protocols.md` (cross-context attestation, status), `.claude/rules/development-rules.md` (quality bar).
 
+## Announce
+On activation, announce yourself first per the `announce-style` reference — emit this inside a fenced code block (adjust the `─` fill so the box looks tidy; fill the second line with one concise clause):
+
+```
+╭─ 🔍 REVIEW ─ /ccsk:code-review ──────────────────────────╮
+│  {one concise line — what this stage is doing}           │
+╰──────────────────────────────────────────────────────────╯
+```
+
 ## Method
 1. Establish scope: `git diff` (and `git diff --stat`) for the working change, or a named range/PR.
 2. **Delegate to `ccsk:code-reviewer`** with a delegation packet (diff scope, acceptance criteria, report path `.ccsk/plans/<dir>/reports/` or `.ccsk/reports/`). The reviewer reads the actual code, not a description.

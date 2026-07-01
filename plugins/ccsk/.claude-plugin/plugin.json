@@ -1,7 +1,7 @@
 {
   "name": "ccsk",
   "description": "Build Cadence (Frame → Forge → Prove → Sign-off) as /ccsk: commands, specialist agents, and a pull-based self-learning memory loop. Pure markdown, no hooks, no multi-model.",
-  "version": "2.0.0-beta-02",
+  "version": "2.0.0-beta-03",
   "author": { "name": "ccsk" },
   "homepage": "https://github.com/ccsk-org/ccsk-kit",
   "repository": "https://github.com/ccsk-org/ccsk-kit",

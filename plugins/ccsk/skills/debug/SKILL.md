@@ -11,6 +11,15 @@ allowed-tools: Read, Glob, Grep, Bash, Edit, Write, Task
 
 Contract: `.claude/rules/primary-workflows.md` (reproduce before you fix), `.claude/rules/common-rules.md` (two-strike rule).
 
+## Announce
+On activation, announce yourself first per the `announce-style` reference — emit this inside a fenced code block (adjust the `─` fill so the box looks tidy; fill the second line with one concise clause):
+
+```
+╭─ 🐛 DEBUG ─ /ccsk:debug ─────────────────────────────────╮
+│  {one concise line — what this stage is doing}           │
+╰──────────────────────────────────────────────────────────╯
+```
+
 ## Method
 1. **Reproduce.** Get a deterministic repro (a failing test, a command, exact inputs). If you can't reproduce it, say so and gather more signal — don't guess-fix.
 2. **Isolate.** Narrow the blast radius: bisect (`git bisect` if useful), add targeted logging, read the failing path. Find the smallest input that triggers it.

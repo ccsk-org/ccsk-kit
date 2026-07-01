@@ -11,6 +11,15 @@ allowed-tools: Read, Glob, Grep, Bash, WebSearch, WebFetch, Write
 
 Contract: `.claude/rules/common-rules.md` (verify claims, token discipline), `.claude/rules/memory-protocol.md` (where the report goes).
 
+## Announce
+On activation, announce yourself first per the `announce-style` reference — emit this inside a fenced code block (adjust the `─` fill so the box looks tidy; fill the second line with one concise clause):
+
+```
+╭─ 🔬 RESEARCH ─ /ccsk:research ───────────────────────────╮
+│  {one concise line — what this stage is doing}           │
+╰──────────────────────────────────────────────────────────╯
+```
+
 ## Method
 1. Scope the question precisely. Split compound questions.
 2. Gather from the right source: the codebase (Grep/Read) for "how does *our* X work"; official docs / `WebFetch` / `WebSearch` for libraries, versions, APIs. Prefer primary sources.

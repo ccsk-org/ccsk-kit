@@ -11,6 +11,11 @@ user-invocable: true
 
 > The kit's own usage manual. Read this when you (or the user) need to know which `/ccsk:` door to open, what each beat produces, and how the memory loop compounds. Grounded in `.claude/rules/primary-workflows.md`, `.claude/rules/memory-protocol.md`, `.claude/rules/orchestration-protocols.md`.
 
+## Announce
+On activation, emit one highlighted line first per the `announce-style` reference:
+
+> 📖 **Guide** · guide — {one concise clause on what you're doing}
+
 ## What ccsk is
 A **pure-markdown** Claude Code plugin that runs all work on one rhythm — the **Build Cadence** — backed by a self-learning memory loop under `.ccsk/`. No hooks, no scripts, no multi-model. Behavior lives in skills, agents, and always-on rules. Sessions **compound**: what you learn is written back and rehydrated next time.
 

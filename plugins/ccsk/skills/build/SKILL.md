@@ -12,6 +12,15 @@ allowed-tools: Read, Glob, Grep, Bash, Task, Edit, Write, MultiEdit, AskUserQues
 
 Contract: `.claude/rules/primary-workflows.md` · `.claude/rules/memory-protocol.md` · `.claude/rules/orchestration-protocols.md` · `.claude/rules/development-rules.md` · `.claude/rules/common-rules.md`.
 
+## Announce
+On activation, announce yourself first per the `announce-style` reference — emit this inside a fenced code block (adjust the `─` fill so the box looks tidy; fill the second line with one concise clause):
+
+```
+╭─ 🔨 FORGE ─ /ccsk:build ─────────────────────────────────╮
+│  {one concise line — what this stage is doing}           │
+╰──────────────────────────────────────────────────────────╯
+```
+
 ## Pre-flight (non-negotiable)
 1. **Rehydrate FIRST** (precondition — memory-protocol): read `.ccsk/MEMORY.md`, the plan's `STATUS.md`, recent journals; **reconcile the ledger against the actual code** (don't trust checkboxes). If no plan dir was given and scope is unclear/multi-phase → stop and route to `/ccsk:plan`.
 2. **Hydrate the ledger:** each open `[ ]` in `01-PLAN.md` → a working task.

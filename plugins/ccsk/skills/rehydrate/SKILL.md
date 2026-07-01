@@ -11,6 +11,15 @@ allowed-tools: Read, Glob, Grep, Bash
 
 Contract: `.claude/rules/memory-protocol.md`.
 
+## Announce
+On activation, announce yourself first per the `announce-style` reference — emit this inside a fenced code block (adjust the `─` fill so the box looks tidy; fill the second line with one concise clause):
+
+```
+╭─ 🧭 REHYDRATE ─ /ccsk:rehydrate ─────────────────────────╮
+│  {one concise line — what this stage is doing}           │
+╰──────────────────────────────────────────────────────────╯
+```
+
 ## Steps (in order)
 1. **STATUS first.** Find the most recent in-progress plan: `ls -t .ccsk/plans/*/STATUS.md` → read it. It tells you the active plan, active phase, and the next action.
 2. **MEMORY + dereference.** Read `.ccsk/MEMORY.md`. Then **open the top relevant pointers** it names (the ADRs in `.ccsk/adrs/`, the journals in `.ccsk/journals/`) — listing them is not reading them. Pull in the few that bear on the current task.
