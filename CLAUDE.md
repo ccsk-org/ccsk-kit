@@ -16,6 +16,7 @@ Entry points:
 - **`/ccsk:loop`** — autonomous optimization loop for one measurable metric.
 - **`/ccsk:rehydrate`** — restore context from memory (auto-activates; **run before `/ccsk:execute`**).
 - **`/ccsk:adopt`** — cold-start on an existing repo: scout the codebase and populate the six evergreen `docs/*` from cited code (`--fast` / `--skip` / `--docs` / `--dry-run` / `--yes` / `--force`). Docs only — never mutates the shipped rules.
+- **`/ccsk:status`** — read-only glance at where work stands: milestone → plans → phases (with progress) → recent journals/retros. Writes nothing.
 
 ## The contract (rules — always on)
 

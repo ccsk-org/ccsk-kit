@@ -52,6 +52,7 @@ Cross-cutting roles (Tier 2):
 | security | 🛡️ | loop | ⟳ |
 | debug | 🐛 | simplify | ✂️ |
 | design | 🎨 | guide | 📖 |
+| status | 📊 | | |
 
 ## Component → form + glyph
 
@@ -59,7 +60,7 @@ Cross-cutting roles (Tier 2):
 · `code-review` 🔍 · `security-review` 🛡️ · `research` 🔬 · `rehydrate` 🧭 · `adopt` 🧭
 
 **Skills — inline (advisory):** `brainstorm` 💡 · `docs-sync` 📄 · `journal` 📓
-· `retro` 📓 · `guide` 📖
+· `retro` 📓 · `guide` 📖 · `status` 📊
 
 **Skills — silent (glue, `user-invocable: false`):** `project-organization` ·
 `context-engineering` · `skill-creator` — these run as background support; no banner.

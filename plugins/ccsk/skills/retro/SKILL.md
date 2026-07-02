@@ -24,7 +24,7 @@ On activation, emit one highlighted line first per the `announce-style` referenc
 2. **Synthesize** (terse): what worked, what didn't, surprises, and 2–4 concrete changes for next time.
 3. **Write** `.ccsk/retros/<YYMMDD>-<slug>.md` (run `date`; per `project-organization`).
 4. **Compact MEMORY.md** (its job): fold/merge stale entries, archive superseded decisions, demote prose to ADRs/journals leaving only pointers, enforce the ~200-line cap.
-5. If a milestone closed, update `.ccsk/milestones/<vN>/MILESTONE.md` progress + `./docs/project-roadmap.md` if a documentation trigger fired.
+5. **Milestone close (retro owns this).** If a milestone's exit criteria are met, mark `.ccsk/milestones/<vN>/MILESTONE.md` **closed** (final progress + date) and update `./docs/project-roadmap.md` if a documentation trigger fired. Lifecycle: `/ccsk:plan` **creates** a milestone (opt-in), `/ccsk:execute` **advances** it, `/ccsk:retro` **closes** it; `/ccsk:status` shows where it stands.
 
 ## Rules
 - Read-only on source — never edits code.

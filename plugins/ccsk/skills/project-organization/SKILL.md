@@ -25,7 +25,7 @@ Run **`date +%y%m%d-%H%M`** for the `YYMMDD-HHMM` stamp and **`date +%y%m%d`** f
 | Journal | `.ccsk/journals/<YYMMDD>-<slug>.md` | append-only; one file per day-topic |
 | Retro | `.ccsk/retros/<YYMMDD>-<slug>.md` | |
 | ADR | `.ccsk/adrs/<NNNN>-<slug>.md` | NNNN = next zero-padded number |
-| Milestone | `.ccsk/milestones/<vN>/MILESTONE.md` | |
+| Milestone | `.ccsk/milestones/<vN>/MILESTONE.md` | sequential `v1, v2…`; opt-in, created by `/ccsk:plan` |
 | Durable facts | `.ccsk/MEMORY.md` | pointers, capped ~200 lines |
 | Evergreen docs | `./docs/<name>.md` | the reconciled skeleton (documentation-management) |
 

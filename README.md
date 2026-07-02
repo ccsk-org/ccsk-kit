@@ -59,6 +59,7 @@ Every non-trivial task moves through four beats. Enter at the one that fits — 
 | A plan exists, or scope is clear | **Forge** | `/ccsk:execute` |
 | Improving one measurable metric repeatedly | **Loop** | `/ccsk:loop` |
 | Resuming work / after compaction | (pre-flight) | `/ccsk:rehydrate` |
+| Seeing where work stands (milestone/plans/phases) | (any time) | `/ccsk:status` |
 | Need options before committing | pre-Frame | `/ccsk:brainstorm` |
 | Learning the method, or want a worked example | (any time) | `/ccsk:guide` |
 

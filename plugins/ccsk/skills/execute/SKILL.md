@@ -40,7 +40,7 @@ On activation, announce yourself first per the `announce-style` reference — em
 
 ## Sign-off — **HARD GATE**
 - **Cross-context review:** spawn a **separate `ccsk:code-reviewer` subagent** to read the real diff and write a verdict to `.ccsk/plans/{dir}/reports/` (orchestration-protocols). The executor may not attest to its own work. A `REJECTED` verdict halts — surface options.
-- **Sync-back:** flip completed `[ ]`→`[x]` in `01-PLAN.md` (only for work in the tree), update `status:`/progress %, update `STATUS.md`.
+- **Sync-back:** flip completed `[ ]`→`[x]` in `01-PLAN.md` (only for work in the tree), update `status:`/progress %, update `STATUS.md`. If the plan carries a `milestone: vN` field, **advance** `.ccsk/milestones/<vN>/MILESTONE.md` (roll its progress; tick any exit criteria now met). Closing the milestone stays with `/ccsk:retro`.
 - **Memory write-back:** write the journal entry + a `MEMORY.md` pointer (+ an ADR via `.ccsk/adrs/` if a real decision was made; respect the MEMORY cap).
 - **Docs:** run `docs-sync` only if a documentation-management trigger actually fired.
 - **You may NOT declare DONE** without a Sign-off block citing ALL of:

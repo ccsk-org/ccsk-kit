@@ -66,5 +66,6 @@ An inline `autonomy: auto` directive may skip *non-destructive* confirmations on
 | A plan already exists, or scope is clear | **Forge** | `/ccsk:execute` |
 | Improving one measurable metric repeatedly | **Loop** | `/ccsk:loop` |
 | Need options before committing to a design | pre-Frame | `ccsk:brainstormer` agent |
+| See where work stands (milestone/plans/phases) | (any time) | `/ccsk:status` |
 
 This file is the stable contract — it carries no tool/CLI mechanics. The commands carry the mechanics; the agents carry the execution; `memory-protocol.md` carries the learning loop.

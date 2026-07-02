@@ -57,7 +57,7 @@ Write lessons **during** work, not batched at the end (a crash then loses one li
 ## ADRs & milestones
 
 - **ADR** on any real, non-obvious decision (trade-off chosen, alternative rejected): `adrs/<NNNN>-<slug>.md` — context · decision · consequences. Add a one-line pointer to `MEMORY.md`.
-- **Milestone** for multi-plan goals: `milestones/<vN>/MILESTONE.md` — goal + observable exit criteria + rolling progress. Updated at Sign-off when a milestone advances.
+- **Milestone** for multi-plan goals (**opt-in**): `milestones/<vN>/MILESTONE.md` — goal + observable exit criteria + rolling progress, sequential `vN`. **Lifecycle lives in the cadence — there is no `/ccsk:milestone` command:** `/ccsk:plan` **creates/attaches** it (only when work spans multiple plans or the user asks), linking plans via a `milestone: vN` field in `01-PLAN.md` + `active-milestone: vN` in `STATUS.md`; `/ccsk:execute` **advances** it at Sign-off; `/ccsk:retro` **closes** it. View milestone → plans → phases with `/ccsk:status`.
 
 ## MEMORY.md — bounded, pointer-based
 

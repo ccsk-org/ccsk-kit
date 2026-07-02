@@ -40,6 +40,8 @@ Write `01-PROMPT.md` = the user's original request **verbatim** (memory-protocol
 ### 4. Clarify — **HARD GATE**
 All three must be YES before designing: *acceptance criteria defined? scope/files bounded? success metric stated?* Pin each down in one sentence; use `AskUserQuestion` with options grounded in Survey. Record in `01-CLARIFY.md`. Don't proceed below 95% confidence.
 
+**Milestone check (opt-in).** If the work clearly spans multiple plans, or the user names a milestone/version goal, offer — one `AskUserQuestion` — to create/attach a milestone: write `.ccsk/milestones/<vN>/MILESTONE.md` (goal + observable exit criteria + linked plans; sequential `vN`) and add a `milestone: vN` field to `01-PLAN.md`. Solo / single-plan work → skip **silently** (never force milestone ceremony). `/ccsk:execute` advances it at Sign-off; `/ccsk:retro` closes it; `/ccsk:status` shows it.
+
 ### 5. Research (skip when trivial)
 Spawn `ccsk:researcher` (read-only) for external/library/best-practice questions → writes `01-RESEARCH.md`. For genuinely open design questions, optionally spawn `ccsk:brainstormer` first to surface 2–3 approaches and pick one.
 
@@ -55,7 +57,7 @@ Spawn `ccsk:planner` to produce the architecture and phase breakdown. Each phase
 For security / payments / data / public-API plans, run one adversarial pass (`ccsk:planner` or `ccsk:brainstormer` wearing a red-team hat) and reconcile findings before handoff.
 
 ### 9. Handoff
-Write `STATUS.md` (active-plan, phase 01, next-action). `AskUserQuestion`: proceed to `/ccsk:execute {plan-dir}`, refine, or stop. Return the absolute plan path + a one-paragraph summary of what was decided.
+Write `STATUS.md` (active-plan, phase 01, next-action; add `active-milestone: vN` if one was attached). `AskUserQuestion`: proceed to `/ccsk:execute {plan-dir}`, refine, or stop. Return the absolute plan path + a one-paragraph summary of what was decided.
 
 ## Anti-patterns (rejected)
 - Asking what a `grep` answers in five seconds.

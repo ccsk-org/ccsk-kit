@@ -44,5 +44,6 @@ These fire by description match during the cadence; invoke explicitly when you w
 | `/ccsk:docs-sync` | updates `./docs` only when real behavior/workflow/architecture changed | at Sign-off after a meaningful, user-facing change | `./docs` edits |
 | `/ccsk:journal` | appends an honest lesson — what happened, decision + why, what hurt, next | continuously during work and at Sign-off | `.ccsk/journals/<date>-<slug>.md` |
 | `/ccsk:retro` | data-driven retrospective over a timeframe; compacts `MEMORY.md` | milestone/sprint close, or on request | `.ccsk/retros/<date>-<slug>.md` |
+| `/ccsk:status` | read-only view: milestone → plans → phases (progress) → recent journals/retros | "where are we", check progress without opening the ledger | nothing (read-only) |
 
 **Rule of thumb:** you rarely call the capability skills by hand — the cadence pulls them in at the right beat (research within Frame, review at Sign-off, journal throughout). Invoke them explicitly only when you want that one capability outside a full build.
